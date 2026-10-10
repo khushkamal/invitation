@@ -34,14 +34,14 @@ export default function FramerWeddingInvite() {
       audioRef.current.pause();
       setIsPlaying(false);
     } else {
-      audioRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
+      audioRef.current.play().then(() => setIsPlaying(true)).catch(() => { });
     }
   };
 
   const handleIntroEnter = (withAudio: boolean) => {
     setIsIntroOpen(false);
     if (withAudio && audioRef.current) {
-      audioRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
+      audioRef.current.play().then(() => setIsPlaying(true)).catch(() => { });
     }
   };
 
@@ -401,7 +401,7 @@ export default function FramerWeddingInvite() {
 
       {/* Main Full-Screen Cinematic Container */}
       <main ref={mainRef} className="w-full relative z-10">
-        
+
         {/* PAGE 1: Hero Cover Sky, Temple, Tree, KIRAN WEDS RAHUL (100vw x 100svh) */}
         <HeroScene />
 
@@ -455,8 +455,8 @@ export default function FramerWeddingInvite() {
 
           {/* 3 & 4. PANORAMIC TEMPLE & FOREGROUND BRIDE/GROOM FULL-WIDTH CONTAINER */}
           {/* Full-width container positioned lower in frame with generous sky breathing room above */}
-          <div className="gsap-p4-pan-container absolute top-[18svh] sm:top-[20svh] left-1/2 -translate-x-1/2 w-[98.5vw] sm:w-[99vw] max-w-none aspect-[1872/3344] pointer-events-none z-20 will-change-transform">
-            
+          <div className="gsap-p4-pan-container absolute top-[18svh] sm:top-[20svh] left-1/2 -translate-x-1/2 w-full sm:w-[101vw] max-w-none aspect-[1872/3344] pointer-events-none z-20 will-change-transform">
+
             {/* Layer 3: Colorful South Indian Meenakshi-style Temple (z-20) */}
             <div className="absolute inset-0 w-full h-full z-20 pointer-events-none">
               <img
