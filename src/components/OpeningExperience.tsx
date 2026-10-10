@@ -166,10 +166,10 @@ export default function OpeningExperience({
         <button
           onClick={onReopen}
           title="Re-open Royal Envelope"
-          className="fixed top-6 left-6 z-50 bg-white/95 backdrop-blur-md border-2 border-[#CDAE80] text-[#580B1A] px-4 py-2 rounded-full shadow-2xl text-xs font-jost uppercase tracking-wider font-semibold flex items-center gap-2 hover:scale-105 active:scale-95 transition-transform"
+          className="fixed top-4 right-4 z-50 bg-white/90 backdrop-blur-md border border-[#CDAE80]/70 text-[#580B1A] p-2 sm:px-3.5 sm:py-1.5 rounded-full shadow-lg text-[11px] font-jost uppercase tracking-wider font-semibold flex items-center gap-1.5 hover:scale-105 active:scale-95 transition-all"
         >
-          <MailOpen size={15} className="text-[#CDAE80]" />
-          <span>Royal Seal</span>
+          <MailOpen size={14} className="text-[#CBA469]" />
+          <span className="hidden sm:inline">Royal Seal</span>
         </button>
       )}
     </>

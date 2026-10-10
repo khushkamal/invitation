@@ -479,14 +479,14 @@ export default function FramerWeddingInvite() {
         </section>
 
         {/* PAGE 5: Our Story & Golden Frame Photo Slider */}
-        <section id="page-5" className="relative w-full min-h-[100svh] sm:min-h-screen py-16 sm:py-24 px-4 overflow-hidden select-none bg-[#FAF5EB] flex items-center justify-center">
+        <section id="page-5" className="relative w-full min-h-screen py-14 sm:py-20 md:py-24 px-4 select-none bg-[#4A0714] flex flex-col items-center justify-start overflow-visible">
           <img
             src="/theartfulinvites/page5_bg.webp"
             alt="Our Story Background"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover object-top"
           />
 
-          <div className="relative max-w-3xl w-full flex flex-col items-center justify-center gap-6 sm:gap-8 text-center z-10">
+          <div className="relative max-w-3xl w-full flex flex-col items-center justify-start gap-4 sm:gap-6 text-center z-10 pt-2 sm:pt-4">
             <WeddingStory />
             <LocationFrame />
           </div>

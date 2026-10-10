@@ -30,7 +30,7 @@ export default function LocationFrame() {
   return (
     <div className="flex flex-col items-center">
       {/* 3. Elaborate Golden Ornamental Frame Component with Full 320px-1920px+ Scaling */}
-      <div className="gsap-gold-frame relative w-[260px] h-[348px] sm:w-[320px] sm:h-[428px] md:w-[360px] md:h-[482px] lg:w-[400px] lg:h-[536px] mx-auto flex items-center justify-center my-auto transition-transform">
+      <div className="gsap-gold-frame relative w-[240px] h-[322px] sm:w-[290px] sm:h-[388px] md:w-[340px] md:h-[455px] lg:w-[380px] lg:h-[509px] mx-auto flex items-center justify-center my-auto transition-transform">
         {/* Layer 1: Inner Transparent Aperture Content (Photos or Location Map Composition) */}
         <div className="absolute top-[14.8%] left-[15.5%] w-[68.7%] h-[71.5%] overflow-hidden bg-[#241A15] shadow-inner z-10 flex flex-col justify-between rounded-sm">
           <AnimatePresence mode="wait">
