@@ -7,7 +7,7 @@ export default function InvitationScene() {
   return (
     <section
       id="page-2"
-      className="relative w-full w-screen overflow-hidden select-none bg-[#FAF5EB] aspect-[2032/3072]"
+      className="relative w-full overflow-hidden select-none bg-[#FAF5EB] aspect-[2032/3072]"
     >
       {/* 100% Full-Width Archway Background Illustration */}
       <img

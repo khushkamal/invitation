@@ -8,7 +8,7 @@ export default function HeroScene() {
   return (
     <section
       id="page-1"
-      className="relative w-full w-screen h-[100svh] min-h-[100svh] overflow-hidden bg-[#5B95C0] select-none flex flex-col items-center justify-center m-0 p-0"
+      className="relative w-full h-[100svh] min-h-[100svh] overflow-hidden bg-[#5B95C0] select-none flex flex-col items-center justify-center m-0 p-0"
     >
       {/* LAYER 1: Vivid Blue Sky Background (100vw x 100svh, z-[1]) */}
       <img

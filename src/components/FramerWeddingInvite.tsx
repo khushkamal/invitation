@@ -302,9 +302,9 @@ export default function FramerWeddingInvite() {
           duration: 1,
           ease: 'power2.out',
           scrollTrigger: {
-            trigger: '.gsap-gold-frame',
-            start: 'top 85%',
-            toggleActions: 'play none none none',
+            trigger: '#page-5',
+            start: 'top 75%',
+            toggleActions: 'play reverse play reverse',
           },
         }
       );
@@ -322,7 +322,7 @@ export default function FramerWeddingInvite() {
           scrollTrigger: {
             trigger: '#page-gallery',
             start: 'top 80%',
-            toggleActions: 'play none none none',
+            toggleActions: 'play reverse play reverse',
           },
         }
       );
@@ -344,7 +344,7 @@ export default function FramerWeddingInvite() {
       reveals.forEach((el) => {
         gsap.fromTo(
           el,
-          { y: 35, opacity: 0 },
+          { y: 30, opacity: 0 },
           {
             y: 0,
             opacity: 1,
@@ -352,7 +352,7 @@ export default function FramerWeddingInvite() {
             ease: 'power2.out',
             scrollTrigger: {
               trigger: el,
-              start: 'top 85%',
+              start: 'top 95%',
               toggleActions: 'play none none none',
             },
           }
@@ -455,7 +455,7 @@ export default function FramerWeddingInvite() {
 
           {/* 3 & 4. PANORAMIC TEMPLE & FOREGROUND BRIDE/GROOM FULL-WIDTH CONTAINER */}
           {/* Full-width container positioned lower in frame with generous sky breathing room above */}
-          <div className="gsap-p4-pan-container absolute top-[18svh] sm:top-[20svh] left-1/2 -translate-x-1/2 w-full sm:w-[101vw] max-w-none aspect-[1872/3344] pointer-events-none z-20 will-change-transform">
+          <div className="gsap-p4-pan-container absolute top-[18svh] sm:top-[20svh] left-1/2 -translate-x-1/2 w-full max-w-none aspect-[1872/3344] pointer-events-none z-20 will-change-transform">
 
             {/* Layer 3: Colorful South Indian Meenakshi-style Temple (z-20) */}
             <div className="absolute inset-0 w-full h-full z-20 pointer-events-none">
@@ -479,15 +479,24 @@ export default function FramerWeddingInvite() {
         </section>
 
         {/* PAGE 5: Our Story & Golden Frame Photo Slider */}
-        <section id="page-5" className="relative w-full min-h-screen py-14 sm:py-20 md:py-24 px-4 select-none bg-[#4A0714] flex flex-col items-center justify-start overflow-visible">
+        <section
+          id="page-5"
+          className="relative w-full overflow-hidden select-none bg-[#590D20] aspect-[2048/3072]"
+        >
           <img
             src="/theartfulinvites/page5_bg.webp"
             alt="Our Story Background"
-            className="absolute inset-0 w-full h-full object-cover object-top"
+            decoding="auto"
+            loading="lazy"
+            width={2048}
+            height={3072}
+            sizes="(min-width: 1920px) calc(100vw * 1.0017), (min-width: 1440px) and (max-width: 1919.98px) calc(100vw * 1.0017), (min-width: 1200px) and (max-width: 1439.98px) calc(100vw * 1.0017), (min-width: 810px) and (max-width: 1199.98px) calc(100vw * 1.0017), (max-width: 809.98px) calc(100vw * 1.0017)"
+            className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
           />
 
-          <div className="relative max-w-3xl w-full flex flex-col items-center justify-start gap-4 sm:gap-6 text-center z-10 pt-2 sm:pt-4">
-            <WeddingStory />
+          <WeddingStory />
+
+          <div className="absolute top-[36.0%] left-1/2 -translate-x-1/2 pointer-events-auto z-20">
             <LocationFrame />
           </div>
         </section>

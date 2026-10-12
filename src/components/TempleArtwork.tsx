@@ -12,7 +12,7 @@ export default function TempleArtwork({ className = '', showTrees = true }: Temp
     <div className={`absolute inset-0 w-full h-full pointer-events-none select-none overflow-hidden ${className}`}>
       {/* Centered Illustrated Temple & Tree Composition (Full 100vw Width, Shared 2032x3072 Registration) */}
       <div className="absolute bottom-0 inset-x-0 w-full flex justify-center items-end pointer-events-none">
-        <div className="relative w-full w-screen max-w-none aspect-[2032/3072] flex items-end justify-center pointer-events-none">
+        <div className="relative w-full max-w-none aspect-[2032/3072] flex items-end justify-center pointer-events-none">
           
           {/* LAYER 4: Foreground Temple Architecture Gopuram (z-[4]) */}
           <img

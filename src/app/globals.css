@@ -49,6 +49,8 @@
   --font-playfair: 'Playfair Display', serif;
   --font-asul: 'Asul', Georgia, serif;
   --font-lunasima: 'Lunasima', sans-serif;
+  --font-elsie: 'Elsie Swash Caps', 'Playfair Display', serif;
+  --font-luxurious: 'Luxurious Script', 'Alex Brush', cursive;
   --font-jost: 'Jost', sans-serif;
   --font-sans: 'Inter', system-ui, sans-serif;
 
@@ -94,6 +96,10 @@ body {
   font-family: var(--font-instrument);
 }
 
+.font-elsie {
+  font-family: var(--font-elsie);
+}
+
 .font-garamond {
   font-family: var(--font-garamond);
 }
@@ -132,6 +138,14 @@ body {
 
 .font-editorial {
   font-family: var(--font-editorial);
+}
+
+.font-luxurious {
+  font-family: var(--font-luxurious);
+}
+
+.font-elsie {
+  font-family: var(--font-elsie);
 }
 
 /* Luxury Card & Shadow Utilities */

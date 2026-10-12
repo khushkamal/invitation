@@ -5,29 +5,45 @@ import { weddingData } from '@/data/wedding';
 
 export default function WeddingStory() {
   return (
-    <div className="text-center max-w-xl mx-auto px-4">
-      {/* 1. Header Typography Hierarchy (Above archway on rich maroon background) */}
-      <div className="gsap-reveal space-y-1">
-        <p className="font-jost text-xs sm:text-sm uppercase tracking-[0.28em] text-[#EAD7BD] font-semibold drop-shadow-sm">
+    <>
+      {/* 1. "Meet The" (Above archway on rich burgundy background) */}
+      <div className="gsap-reveal absolute top-[4.2%] left-1/2 -translate-x-1/2 w-full text-center pointer-events-auto">
+        <p className="font-elsie text-[clamp(17px,2.5vw,42px)] text-[#EAD7BD] font-normal tracking-wide drop-shadow-sm select-none">
           {weddingData.coupleStory.sectionPretitle}
         </p>
-        <h2 className="font-instrument text-2xl sm:text-4xl md:text-5xl text-[#FFEBBB] uppercase tracking-wide font-normal drop-shadow-md">
+      </div>
+
+      {/* 2. "Bride & Groom" (Cursive calligraphy script on burgundy background) */}
+      <div className="gsap-reveal absolute top-[6.8%] left-1/2 -translate-x-1/2 w-full text-center pointer-events-auto">
+        <h2 className="font-luxurious text-[clamp(28px,4.2vw,76px)] text-[#D7B480] font-normal leading-tight tracking-normal drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)] select-none">
           {weddingData.coupleStory.sectionTitle}
         </h2>
       </div>
 
-      {/* 2. Narrative Story Content (Framed naturally inside the warm cream archway) */}
-      <div
-        className="gsap-reveal max-w-[280px] sm:max-w-[360px] md:max-w-md mx-auto"
-        style={{ marginTop: '4.2rem' }}
-      >
-        <span className="font-script text-3xl sm:text-4xl md:text-5xl text-[#CDAE80] block drop-shadow-sm mb-1.5">
+      {/* 3. "Our Story" (Positioned gracefully inside the full-height arch dome) */}
+      <div className="gsap-reveal absolute top-[18.2%] left-1/2 -translate-x-1/2 w-full text-center pointer-events-auto z-10">
+        <h3
+          className="font-luxurious text-[clamp(26px,3.8vw,70px)] select-none text-center leading-none tracking-wide drop-shadow-[0_1px_2px_rgba(0,0,0,0.12)]"
+          style={{ color: '#C29C54' }}
+        >
           {weddingData.coupleStory.scriptTitle}
-        </span>
-        <p className="font-garamond text-[11px] sm:text-xs md:text-sm text-[#460101] leading-relaxed italic font-medium text-center">
-          &ldquo;{weddingData.coupleStory.narrative}&rdquo;
+        </h3>
+      </div>
+
+      {/* 4. Narrative Story Paragraph (9 centered lines matching user reference with airy line spacing and deep maroon color) */}
+      <div className="gsap-reveal absolute top-[23.6%] left-1/2 -translate-x-1/2 w-[68%] sm:w-[64%] md:w-[58%] text-center pointer-events-auto z-10">
+        <p className="font-sans text-[clamp(6px,0.86vw,7.8px)] sm:text-[clamp(8.5px,1.0vw,12px)] md:text-[clamp(11.5px,1.05vw,15px)] text-[#420912] font-semibold leading-[1.48] sm:leading-[1.54] md:leading-[1.6] select-none tracking-normal">
+          <span className="block">Some souls are destined to find each other, no matter how long the journey.</span>
+          <span className="block">Krishna and Radha&apos;s story wasn&apos;t just about falling in love—it was about</span>
+          <span className="block">finding peace in each other&apos;s presence, strength in every challenge, and a</span>
+          <span className="block">home in each other&apos;s hearts. Through every smile, every tear, and every</span>
+          <span className="block">moment in between, their love only grew deeper. Today, as they take the</span>
+          <span className="block">sacred vows of forever, they carry with them not only dreams of a beautiful</span>
+          <span className="block">future but also the blessings of everyone who has been part of their</span>
+          <span className="block">journey. With hearts full of love and gratitude, they invite you to celebrate</span>
+          <span className="block">the beginning of their forever.</span>
         </p>
       </div>
-    </div>
+    </>
   );
 }
