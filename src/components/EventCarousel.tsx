@@ -131,10 +131,10 @@ export default function EventCarousel({ initialIdx = 0 }: EventCarouselProps) {
 
       {/* 2. REFINED EVENT PANEL: Antique Gold subtle outer rim + Inner Gold border with Corner Sparkle Stars */}
       <div className="relative z-10 w-full max-w-[1060px] rounded-[24px] sm:rounded-[28px] border-[1.5px] border-[#C99A42]/45 p-1 sm:p-1.5 bg-[#FFFCF5] shadow-[0_8px_24px_rgba(45,35,20,0.08)]">
-        
+
         {/* Inner Gold Accent Line with Generous Padding */}
         <div className="relative w-full rounded-[18px] sm:rounded-[22px] border border-[#C99A42]/70 bg-[#FFFCF5] px-4 pt-4 pb-10 sm:px-6 sm:pt-6 sm:pb-8 md:p-8">
-          
+
           {/* 4-Corner Sparkle Stars matching reference image */}
           {/* Top-Left: Gold star with blue center */}
           <CornerStar color="#C99A42" centerColor="#123B86" className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3" />
@@ -154,12 +154,12 @@ export default function EventCarousel({ initialIdx = 0 }: EventCarouselProps) {
 
           {/* MAIN TWO-COLUMN COMPOSITION: Left (Photo Carousel) & Right (Details) */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-7 md:gap-8 lg:gap-[34px] items-center">
-            
+
             {/* 4. LEFT COLUMN: Clean Photograph Frame with Gold border accents */}
             <div className="md:col-span-5 lg:col-span-5 w-full">
               <div className="relative w-full rounded-[20px] border border-[#C99A42]/40 p-[2.5px] bg-[#FFFDF8] shadow-[0_2px_10px_rgba(0,0,0,0.05)]">
                 <div className="relative w-full rounded-[16px] border border-[#C99A42]/75 overflow-hidden bg-[#FAF6EE] aspect-[5/4] xs:aspect-[4/3] sm:aspect-[4/5]">
-                  
+
                   {/* Photo with Smooth Cross-fade Animation */}
                   <AnimatePresence mode="wait">
                     <motion.img
@@ -204,11 +204,10 @@ export default function EventCarousel({ initialIdx = 0 }: EventCarouselProps) {
                             setCurrentEventIdx(idx);
                           }}
                           aria-label={`Go to slide ${idx + 1}`}
-                          className={`rounded-full transition-all duration-300 ${
-                            currentEventIdx === idx
+                          className={`rounded-full transition-all duration-300 ${currentEventIdx === idx
                               ? 'w-2.5 h-2.5 bg-[#123B86]'
                               : 'w-2 h-2 bg-[#C99A42]/40 hover:bg-[#C99A42]'
-                          }`}
+                            }`}
                         />
                       ))}
                     </div>

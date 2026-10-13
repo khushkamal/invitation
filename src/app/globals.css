@@ -90,7 +90,10 @@
 }
 
 @layer base {
-  *, ::before, ::after {
+
+  *,
+  ::before,
+  ::after {
     box-sizing: border-box;
   }
 }
@@ -104,7 +107,8 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -392,14 +396,18 @@ body {
 }
 
 /* Touch Scrolling Optimization for Mobile Devices */
-html, body {
+html,
+body {
   touch-action: pan-y;
   -webkit-overflow-scrolling: touch;
 }
 
 /* Accessibility: Prefers Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
+
+  *,
+  ::before,
+  ::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

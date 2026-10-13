@@ -26,8 +26,11 @@ interface Particle {
 
 export default function FinalTempleScene() {
   const [particles, setParticles] = useState<Particle[]>([]);
+  const sectionRef = useRef<HTMLElement>(null);
   const particleCounter = useRef(0);
   const magicIdx = useRef(0);
+  const lastPos = useRef({ x: 0, y: 0 });
+  const lastSpawnTime = useRef(0);
 
   const spawnMagic = (clientX: number, clientY: number) => {
     particleCounter.current += 1;
@@ -38,13 +41,59 @@ export default function FinalTempleScene() {
       x: clientX,
       y: clientY,
       image: img,
-      rotation: (Math.random() - 0.5) * 20,
+      rotation: (Math.random() - 0.5) * 22,
     };
-    setParticles((prev) => [...prev.slice(-6), p]);
+    setParticles((prev) => [...prev.slice(-9), p]);
     setTimeout(() => {
       setParticles((prev) => prev.filter((item) => item.id !== p.id));
-    }, 1600);
+    }, 1400);
   };
+
+  useEffect(() => {
+    const handleMove = (clientX: number, clientY: number) => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+
+      // Check if cursor/touch is within #page-7
+      if (
+        clientX >= rect.left &&
+        clientX <= rect.right &&
+        clientY >= rect.top &&
+        clientY <= rect.bottom
+      ) {
+        const dx = clientX - lastPos.current.x;
+        const dy = clientY - lastPos.current.y;
+        const dist = Math.hypot(dx, dy);
+        const now = Date.now();
+
+        // Spawn smoothly on movement:
+        // Every ~35px of distance, or if moving at least 18px after 90ms
+        if (dist >= 35 || (dist >= 18 && now - lastSpawnTime.current > 90)) {
+          lastPos.current = { x: clientX, y: clientY };
+          lastSpawnTime.current = now;
+          spawnMagic(clientX, clientY);
+        }
+      }
+    };
+
+    const onMouseMove = (e: MouseEvent) => {
+      handleMove(e.clientX, e.clientY);
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      if (e.touches && e.touches[0]) {
+        handleMove(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    };
+
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: true });
+
+    return () => {
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('touchmove', onTouchMove);
+    };
+  }, []);
 
   const handleMagicClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -74,13 +123,24 @@ export default function FinalTempleScene() {
           {particles.map((p) => (
             <motion.div
               key={p.id}
-              initial={{ opacity: 0, scale: 0.3, x: p.x - 40, y: p.y - 40, rotate: 0 }}
-              animate={{ opacity: [0, 1, 0.9, 0], scale: [0.3, 0.9, 0.95, 0.5], y: p.y - 90, rotate: p.rotation }}
+              style={{ left: p.x, top: p.y }}
+              initial={{ opacity: 0, scale: 0.35, x: '-50%', y: '-50%', rotate: 0 }}
+              animate={{
+                opacity: [0, 1, 1, 0],
+                scale: [0.35, 1, 0.96, 0.6],
+                x: '-50%',
+                y: ['-50%', '-140%'],
+                rotate: p.rotation,
+              }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 1.5, ease: 'easeOut' }}
-              className="absolute w-24 h-28 rounded-lg bg-white p-1 shadow-2xl border border-[#CDAE80] pointer-events-none"
+              transition={{ duration: 1.35, ease: 'easeOut' }}
+              className="absolute w-22 h-26 sm:w-26 sm:h-32 rounded-lg bg-white p-1 shadow-2xl border border-[#CDAE80] pointer-events-none select-none overflow-hidden"
             >
-              <img src={p.image} alt="Magic Memory" className="w-full h-full object-cover rounded" />
+              <img
+                src={p.image}
+                alt="Magic Memory"
+                className="w-full h-full object-cover rounded pointer-events-none select-none"
+              />
             </motion.div>
           ))}
         </AnimatePresence>
@@ -88,6 +148,7 @@ export default function FinalTempleScene() {
 
       <section
         id="page-7"
+        ref={sectionRef}
         className="relative w-full aspect-[1872/3344] overflow-hidden select-none bg-[#E8D8C8]"
       >
         {/* Distinctive Final Scene Illustrated Landscape (Full width and full height edge-to-edge) */}
