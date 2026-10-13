@@ -395,12 +395,12 @@ export const weddingData = {
 
   rsvp: {
     title: "Will You Join Us?",
-    note: "We would be most honoured to celebrate this day with you. Please let us know if you'll be joining the festivities — your presence is the only gift we need.",
+    note: "We would be truly honoured to celebrate this day with you. Please let us know if you'll be joining the festivities — your presence is the only gift we need.",
     ctaText: "TAP HERE",
     buttonLabel: "RSVP on WhatsApp",
     phone: "+918819959966",
-    message: "I COMMING",
-    prefilledMessage: "I COMMING"
+    message: "Namaste! We are delighted to confirm our attendance for the wedding celebrations of Rahul & Kiran. Looking forward to celebrating together!",
+    prefilledMessage: "Namaste! We are delighted to confirm our attendance for the wedding celebrations of Rahul & Kiran. Looking forward to celebrating together!"
   },
 
   branding: {

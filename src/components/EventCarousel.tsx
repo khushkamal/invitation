@@ -116,7 +116,7 @@ export default function EventCarousel({ initialIdx = 0 }: EventCarouselProps) {
   return (
     <section
       id="page-3"
-      className="relative w-full min-h-[100svh] py-8 sm:py-14 md:py-20 px-3 sm:px-6 md:px-12 overflow-hidden select-none flex items-center justify-center bg-[#FAF6EE]"
+      className="relative w-full min-h-[100svh] py-10 sm:py-14 md:py-20 px-3 sm:px-6 md:px-12 select-none flex items-center justify-center bg-[#FAF6EE]"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
       aria-roledescription="carousel"
@@ -129,11 +129,11 @@ export default function EventCarousel({ initialIdx = 0 }: EventCarouselProps) {
         className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-95"
       />
 
-      {/* 2. REFINED EVENT PANEL: Grey outer border + Gold inner border line with Corner Sparkle Stars */}
-      <div className="relative z-10 w-full max-w-[1060px] rounded-[24px] sm:rounded-[28px] border-[2px] border-[#CBD5E1] p-[3px] sm:p-[4px] bg-[#FFFCF5] shadow-[0_4px_16px_rgba(45,35,20,0.06)]">
+      {/* 2. REFINED EVENT PANEL: Antique Gold subtle outer rim + Inner Gold border with Corner Sparkle Stars */}
+      <div className="relative z-10 w-full max-w-[1060px] rounded-[24px] sm:rounded-[28px] border-[1.5px] border-[#C99A42]/45 p-1 sm:p-1.5 bg-[#FFFCF5] shadow-[0_8px_24px_rgba(45,35,20,0.08)]">
         
-        {/* Inner Gold Accent Line with Padding */}
-        <div className="relative w-full rounded-[18px] sm:rounded-[22px] border border-[#C99A42] bg-[#FFFCF5] p-[18px] sm:p-6 md:p-[28px]">
+        {/* Inner Gold Accent Line with Generous Padding */}
+        <div className="relative w-full rounded-[18px] sm:rounded-[22px] border border-[#C99A42]/70 bg-[#FFFCF5] px-4 pt-4 pb-10 sm:px-6 sm:pt-6 sm:pb-8 md:p-8">
           
           {/* 4-Corner Sparkle Stars matching reference image */}
           {/* Top-Left: Gold star with blue center */}
@@ -147,18 +147,18 @@ export default function EventCarousel({ initialIdx = 0 }: EventCarouselProps) {
 
           {/* Eyebrow Label: Krishna & Radha in Royal Blue (#123B86) */}
           <div className="mb-3 sm:mb-4 pl-0.5 sm:pl-1">
-            <span className="text-[#123B86] font-medium text-[14.5px] sm:text-[15px] tracking-wide">
+            <span className="text-[#123B86] font-medium text-[13.5px] sm:text-[14.5px] tracking-wide font-sans">
               Krishna &amp; Radha
             </span>
           </div>
 
           {/* MAIN TWO-COLUMN COMPOSITION: Left (Photo Carousel) & Right (Details) */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-7 md:gap-8 lg:gap-[34px] items-start">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-7 md:gap-8 lg:gap-[34px] items-center">
             
-            {/* 4. LEFT COLUMN: Clean Photograph Frame with Grey outer border + Gold inner border */}
+            {/* 4. LEFT COLUMN: Clean Photograph Frame with Gold border accents */}
             <div className="md:col-span-5 lg:col-span-5 w-full">
-              <div className="relative w-full rounded-[20px] border-[2px] border-[#CBD5E1] p-[2.5px] bg-[#FFFDF8] shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-                <div className="relative w-full rounded-[16px] border border-[#C99A42] overflow-hidden bg-[#FAF6EE] aspect-[4/5]">
+              <div className="relative w-full rounded-[20px] border border-[#C99A42]/40 p-[2.5px] bg-[#FFFDF8] shadow-[0_2px_10px_rgba(0,0,0,0.05)]">
+                <div className="relative w-full rounded-[16px] border border-[#C99A42]/75 overflow-hidden bg-[#FAF6EE] aspect-[5/4] xs:aspect-[4/3] sm:aspect-[4/5]">
                   
                   {/* Photo with Smooth Cross-fade Animation */}
                   <AnimatePresence mode="wait">
@@ -176,26 +176,26 @@ export default function EventCarousel({ initialIdx = 0 }: EventCarouselProps) {
 
                   {/* Carousel Controls Positioned Cleanly Inside Photo Bottom */}
                   <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-auto z-20">
-                    {/* Bottom-Left: Circular Previous & Next Buttons */}
-                    <div className="flex items-center gap-1.5">
+                    {/* Bottom-Left: Circular Previous & Next Buttons with 40px touch targets */}
+                    <div className="flex items-center gap-2">
                       <button
                         onClick={prevEvent}
-                        aria-label="Previous slide"
-                        className="w-8 h-8 rounded-full bg-white/95 hover:bg-white text-[#123B86] border border-gray-200 shadow-sm flex items-center justify-center active:scale-90 transition-transform"
+                        aria-label="Previous event celebration"
+                        className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 hover:bg-white text-[#123B86] border border-[#C99A42]/40 shadow-sm flex items-center justify-center active:scale-90 hover:scale-105 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C99A42]"
                       >
-                        <ChevronLeft size={16} strokeWidth={2.5} />
+                        <ChevronLeft size={18} strokeWidth={2.4} />
                       </button>
                       <button
                         onClick={nextEvent}
-                        aria-label="Next slide"
-                        className="w-8 h-8 rounded-full bg-white/95 hover:bg-white text-[#123B86] border border-gray-200 shadow-sm flex items-center justify-center active:scale-90 transition-transform"
+                        aria-label="Next event celebration"
+                        className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 hover:bg-white text-[#123B86] border border-[#C99A42]/40 shadow-sm flex items-center justify-center active:scale-90 hover:scale-105 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C99A42]"
                       >
-                        <ChevronRight size={16} strokeWidth={2.5} />
+                        <ChevronRight size={18} strokeWidth={2.4} />
                       </button>
                     </div>
 
                     {/* Bottom-Right: Slide Pagination Indicators */}
-                    <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-xs px-2.5 py-1.5 rounded-full border border-gray-200/60 shadow-xs">
+                    <div className="flex items-center gap-1.5 bg-white/85 backdrop-blur-xs px-2.5 py-1.5 rounded-full border border-[#C99A42]/30 shadow-xs">
                       {weddingData.events.map((_, idx) => (
                         <button
                           key={idx}
@@ -207,7 +207,7 @@ export default function EventCarousel({ initialIdx = 0 }: EventCarouselProps) {
                           className={`rounded-full transition-all duration-300 ${
                             currentEventIdx === idx
                               ? 'w-2.5 h-2.5 bg-[#123B86]'
-                              : 'w-2 h-2 bg-[#CBD5E1] hover:bg-[#94A3B8]'
+                              : 'w-2 h-2 bg-[#C99A42]/40 hover:bg-[#C99A42]'
                           }`}
                         />
                       ))}
@@ -218,8 +218,8 @@ export default function EventCarousel({ initialIdx = 0 }: EventCarouselProps) {
               </div>
             </div>
 
-            {/* 5. RIGHT COLUMN: Clean Bold Heading & Refined Event Details */}
-            <div className="md:col-span-7 lg:col-span-7 flex flex-col justify-start text-left pt-0.5">
+            {/* 5. RIGHT COLUMN: Elegant Serif Heading & Refined Event Details */}
+            <div className="md:col-span-7 lg:col-span-7 flex flex-col justify-center text-left py-1 sm:py-2">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeEvent.id}
@@ -227,15 +227,15 @@ export default function EventCarousel({ initialIdx = 0 }: EventCarouselProps) {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -12 }}
                   transition={{ duration: 0.3, ease: 'easeOut' }}
-                  className="flex flex-col items-start"
+                  className="flex flex-col items-start w-full"
                 >
-                  {/* Event Title: Bold display sans heading (#2D2319 / #33261D) */}
-                  <h2 className="font-sans text-[#2D2319] font-bold text-[clamp(28px,7vw,36px)] md:text-[clamp(34px,2.8vw,44px)] leading-[1.12] tracking-[-0.01em] mb-[12px]">
+                  {/* Event Title: Elegant Serif Heading (#392D21) */}
+                  <h2 className="font-serif text-[#392D21] font-bold text-[clamp(26px,6vw,34px)] md:text-[clamp(30px,2.6vw,42px)] leading-[1.15] tracking-[-0.01em] mb-[12px]">
                     {activeEvent.title}
                   </h2>
 
                   {/* Horizontal Metadata Row: Date • Time • Venue */}
-                  <div className="flex flex-wrap items-center gap-x-[18px] sm:gap-x-[22px] gap-y-[10px] text-[13.5px] sm:text-[14.5px] md:text-[15px] text-[#665B4E] font-normal sm:font-medium leading-[1.5]">
+                  <div className="flex flex-wrap items-center gap-x-[16px] sm:gap-x-[20px] gap-y-[8px] text-[13.5px] sm:text-[14px] md:text-[14.5px] text-[#665B4E] font-medium leading-[1.5]">
                     {/* Date */}
                     <div className="inline-flex items-center gap-2">
                       <CalendarIcon size={16} />
@@ -249,24 +249,24 @@ export default function EventCarousel({ initialIdx = 0 }: EventCarouselProps) {
                     </div>
 
                     {/* Venue */}
-                    <div className="inline-flex items-center gap-2 uppercase font-medium text-[#2D2319]">
+                    <div className="inline-flex items-center gap-2 uppercase font-semibold text-[#392D21]">
                       <LocationPinIcon size={16} />
                       <span>{activeEvent.venue}</span>
                     </div>
                   </div>
 
-                  {/* 6. Event Description: #665B4E, 15px, 1.6 line-height, max-width ~520px, 14px top spacing */}
-                  <p className="text-[#665B4E] text-[14px] sm:text-[15px] md:text-[15.5px] leading-[1.6] max-w-[520px] mt-[14px]">
+                  {/* 6. Event Description: #665B4E, 14.5-15px, 1.6 line-height, max-width ~520px */}
+                  <p className="text-[#665B4E] text-[14px] sm:text-[14.5px] md:text-[15px] leading-[1.62] max-w-[520px] mt-[14px]">
                     {activeEvent.description}
                   </p>
 
-                  {/* 7. View Location Button: Pill shape, compact height (34-36px), deep royal blue, gold border, white text */}
-                  <div className="mt-[20px] sm:mt-[22px]">
+                  {/* 7. View Location Button: Standardized 44px min-height, royal blue, gold border, white text */}
+                  <div className="mt-[20px] sm:mt-[22px] mb-2.5 sm:mb-0">
                     <a
                       href={activeEvent.mapLink || activeEvent.mapsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center h-[34px] sm:h-[36px] px-[20px] rounded-full bg-[#0B3280] hover:bg-[#082866] text-white text-[13px] sm:text-[13.5px] font-medium font-sans tracking-wide leading-none border border-[#C99A42] shadow-[0_2px_6px_rgba(11,50,128,0.22)] transition-all duration-200 ease-in-out hover:scale-[1.02] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C99A42] focus-visible:ring-offset-2"
+                      className="inline-flex items-center justify-center min-h-[44px] px-6 rounded-full bg-[#123B86] hover:bg-[#0E2F6C] text-white text-[14px] font-medium font-sans tracking-wide leading-none border border-[#C99A42] shadow-[0_2px_8px_rgba(18,59,134,0.25)] transition-all duration-200 ease-in-out hover:scale-[1.02] hover:shadow-[0_4px_12px_rgba(18,59,134,0.35)] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C99A42] focus-visible:ring-offset-2"
                     >
                       View Location
                     </a>

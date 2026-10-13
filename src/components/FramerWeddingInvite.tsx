@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Lenis from 'lenis';
 import { Volume2, VolumeX } from 'lucide-react';
 import { weddingData } from '@/data/wedding';
 
@@ -13,7 +14,6 @@ import InvitationScene from './InvitationScene';
 import EventCarousel from './EventCarousel';
 import WeddingStory from './WeddingStory';
 import LocationFrame from './LocationFrame';
-import Gallery from './Gallery';
 import RSVPSection from './RSVPSection';
 import FinalTempleScene from './FinalTempleScene';
 
@@ -45,8 +45,28 @@ export default function FramerWeddingInvite() {
     }
   };
 
-  // GSAP & GSAP ScrollTrigger Integration with strict context cleanup
+  // GSAP & Lenis Smooth Scroll Integration with strict context cleanup
   useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.5,
+      infinite: false,
+    });
+
+    lenis.on('scroll', ScrollTrigger.update);
+
+    const rafTicker = (time: number) => {
+      lenis.raf(time * 1000);
+    };
+
+    gsap.ticker.add(rafTicker);
+    gsap.ticker.lagSmoothing(0);
+
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
@@ -309,35 +329,7 @@ export default function FramerWeddingInvite() {
         }
       );
 
-      // 7. Page 5.5 Photo Gallery staggered reveal
-      gsap.fromTo(
-        '.gsap-gallery-card',
-        { y: 30, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.75,
-          stagger: 0.08,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: '#page-gallery',
-            start: 'top 80%',
-            toggleActions: 'play reverse play reverse',
-          },
-        }
-      );
 
-      // 8. Page 7 Controlled Parallax (embossed mountain landscape)
-      gsap.to('.gsap-p7-landscape', {
-        yPercent: 6,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '#page-7',
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1,
-        },
-      });
 
       // 9. General Scroll-Triggered Typography & Section reveals
       const reveals = gsap.utils.toArray<HTMLElement>('.gsap-reveal');
@@ -362,7 +354,11 @@ export default function FramerWeddingInvite() {
       ScrollTrigger.refresh();
     }, mainRef);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      gsap.ticker.remove(rafTicker);
+      lenis.destroy();
+    };
   }, [isIntroOpen]);
 
   return (
@@ -381,22 +377,22 @@ export default function FramerWeddingInvite() {
       {/* Floating Audio Controller (Bottom-Left as in Framer template) */}
       <button
         onClick={toggleAudio}
-        aria-label="Toggle Wedding Music"
-        className="fixed bottom-6 left-6 z-50 flex items-center bg-white/90 backdrop-blur-md rounded-full p-1 pr-3 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all group border border-white/60 select-none"
+        aria-label={isPlaying ? 'Pause Wedding Music' : 'Play Wedding Music'}
+        className="fixed bottom-5 left-5 sm:bottom-6 sm:left-6 z-40 flex items-center min-h-[44px] bg-[#FFFCF5]/95 backdrop-blur-md rounded-full p-1 pr-3.5 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all group border border-[#C99A42]/55 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C99A42] focus-visible:ring-offset-2"
       >
-        <div className="w-10 h-10 rounded-full bg-[#CBA469] flex items-center justify-center text-white shadow-md group-hover:bg-[#B89255] transition-colors">
+        <div className="w-10 h-10 rounded-full bg-[#C99A42] flex items-center justify-center text-white shadow-md group-hover:bg-[#B58835] transition-colors">
           {isPlaying ? (
-            <span className="text-xs font-bold tracking-tighter flex items-center gap-0.5">
+            <span className="text-xs font-bold tracking-tighter flex items-center gap-0.5" aria-hidden="true">
               <span className="w-1 h-3.5 bg-white rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
               <span className="w-1 h-3.5 bg-white rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
             </span>
           ) : (
-            <svg className="w-4 h-4 translate-x-0.5 fill-current" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 translate-x-0.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M8 5v14l11-7z" />
             </svg>
           )}
         </div>
-        <span className="text-gray-400 text-xs font-mono ml-2 font-bold group-hover:text-gray-600 transition-colors">&lt;</span>
+        <span className="text-[#665B4E] text-xs font-mono ml-2 font-bold group-hover:text-[#392D21] transition-colors">&lt;</span>
       </button>
 
       {/* Main Full-Screen Cinematic Container */}
@@ -501,8 +497,6 @@ export default function FramerWeddingInvite() {
           </div>
         </section>
 
-        {/* PAGE 5.5: Royal Photo Gallery Chronicles */}
-        <Gallery />
 
         {/* PAGE 6: RSVP "Will You Join Us?" with WhatsApp Link */}
         <RSVPSection />

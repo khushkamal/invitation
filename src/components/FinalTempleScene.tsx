@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
+import confetti from 'canvas-confetti';
 import CountdownSection from './CountdownSection';
 import InstagramSection from './InstagramSection';
 
@@ -25,7 +26,6 @@ interface Particle {
 
 export default function FinalTempleScene() {
   const [particles, setParticles] = useState<Particle[]>([]);
-  const [magicActive, setMagicActive] = useState(false);
   const particleCounter = useRef(0);
   const magicIdx = useRef(0);
 
@@ -38,27 +38,33 @@ export default function FinalTempleScene() {
       x: clientX,
       y: clientY,
       image: img,
-      rotation: (Math.random() - 0.5) * 30,
+      rotation: (Math.random() - 0.5) * 20,
     };
-    setParticles((prev) => [...prev.slice(-10), p]);
+    setParticles((prev) => [...prev.slice(-6), p]);
     setTimeout(() => {
       setParticles((prev) => prev.filter((item) => item.id !== p.id));
     }, 1600);
   };
 
-  useEffect(() => {
-    if (!magicActive) return;
-    const handleMove = (e: MouseEvent) => spawnMagic(e.clientX, e.clientY);
-    const handleTouch = (e: TouchEvent) => {
-      if (e.touches[0]) spawnMagic(e.touches[0].clientX, e.touches[0].clientY);
-    };
-    window.addEventListener('mousemove', handleMove);
-    window.addEventListener('touchmove', handleTouch);
-    return () => {
-      window.removeEventListener('mousemove', handleMove);
-      window.removeEventListener('touchmove', handleTouch);
-    };
-  }, [magicActive]);
+  const handleMagicClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const clickX = rect.left + rect.width / 2;
+    const clickY = rect.top + rect.height / 2;
+    spawnMagic(clickX, clickY);
+
+    confetti({
+      particleCount: 28,
+      spread: 55,
+      origin: {
+        x: clickX / window.innerWidth,
+        y: clickY / window.innerHeight,
+      },
+      colors: ['#D4AF37', '#CDAE80', '#590D20', '#FFFCF5'],
+      ticks: 120,
+      gravity: 0.8,
+      scalar: 0.85,
+    });
+  };
 
   return (
     <>
@@ -80,39 +86,43 @@ export default function FinalTempleScene() {
         </AnimatePresence>
       </div>
 
-      <section id="page-7" className="relative w-full min-h-[100svh] sm:min-h-screen py-16 sm:py-24 px-4 overflow-hidden select-none bg-[#F7F2EB] flex flex-col justify-between items-center">
-        {/* Distinctive Final Scene Illustrated Landscape with Controlled Parallax */}
+      <section
+        id="page-7"
+        className="relative w-full aspect-[1872/3344] overflow-hidden select-none bg-[#E8D8C8]"
+      >
+        {/* Distinctive Final Scene Illustrated Landscape (Full width and full height edge-to-edge) */}
         <img
           src="/theartfulinvites/final_scene_temple_landscape.png"
           alt="Sacred Golden Temple Landscape & Botanical Artwork"
-          className="gsap-p7-landscape absolute inset-0 w-full h-[115%] object-cover -top-[5%]"
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none"
         />
 
-        <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center justify-between min-h-[80vh] py-4 text-center">
-          {/* Top Area: Live Countdown Presentation */}
-          <CountdownSection />
-
-          {/* Middle Area: Touch Here for Magic Button */}
-          <div className="my-auto flex flex-col items-center py-6">
-            <button
-              onClick={(e) => {
-                setMagicActive((prev) => !prev);
-                spawnMagic(e.clientX, e.clientY);
-              }}
-              className="group inline-flex items-center gap-2 sm:gap-2.5 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full bg-white/95 text-[#580B1A] border border-[#CDAE80] shadow-xl hover:shadow-2xl transition-all active:scale-95 text-sm sm:text-base"
-            >
-              <Sparkles size={16} className="text-[#CDAE80] group-hover:rotate-12 transition-transform" />
-              <span className="font-script text-2xl sm:text-3xl text-[#580B1A]">
-                Touch here for Magic
-              </span>
-              <span className="text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold text-[#CDAE80] bg-[#580B1A]/10 px-2 py-0.5 rounded-full border border-[#CDAE80]/30 ml-1.5">
-                {magicActive ? 'ACTIVE ✨' : 'TAP'}
-              </span>
-            </button>
+        {/* Top Area: Live Countdown & "Touch here for magic" inside open sky (Starting) */}
+        <div className="absolute inset-x-0 top-[3.5%] sm:top-[4.5%] flex flex-col items-center pointer-events-none z-10 px-4">
+          <div className="pointer-events-auto">
+            <CountdownSection />
           </div>
 
-          {/* Bottom Area: Social & Stationery Branding */}
-          <InstagramSection />
+          {/* Cursive "Touch here for magic" with comfortable generous gap below countdown */}
+          <button
+            onClick={handleMagicClick}
+            aria-label="Touch here for magic memory celebration"
+            className="pointer-events-auto mt-8 sm:mt-12 md:mt-16 flex flex-col items-center text-center group cursor-pointer hover:scale-105 active:scale-95 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C99A42] rounded-xl p-2 select-none"
+          >
+            <span className="font-luxurious text-[clamp(28px,4.5vw,72px)] text-[#4E0917] leading-[1.05] select-none">
+              Touch here for
+            </span>
+            <span className="font-luxurious text-[clamp(28px,4.5vw,72px)] text-[#4E0917] leading-[1.05] select-none mt-1 sm:mt-2">
+              magic
+            </span>
+          </button>
+        </div>
+
+        {/* Bottom Area: Social & Stationery Branding */}
+        <div className="absolute inset-x-0 bottom-[3%] sm:bottom-[4%] flex justify-center pointer-events-none z-10">
+          <div className="pointer-events-auto">
+            <InstagramSection />
+          </div>
         </div>
       </section>
     </>

@@ -25,8 +25,8 @@ export default function InstagramSection() {
         </p>
 
         {/* Instagram Section with Functioning "TAP HERE" Interaction */}
-        <div className="flex flex-col items-center gap-1 mt-1">
-          <span className="text-[8px] xs:text-[9px] sm:text-[10px] font-jost uppercase tracking-[0.22em] font-bold text-[#580B1A] bg-[#580B1A]/10 border border-[#CDAE80]/50 px-2.5 xs:px-3 py-0.5 rounded-full shadow-xs">
+        <div className="flex flex-col items-center gap-1.5 mt-1">
+          <span className="text-[8.5px] xs:text-[9.5px] sm:text-[10.5px] font-jost uppercase tracking-[0.24em] font-bold text-[#590D20] bg-[#590D20]/10 border border-[#C99A42]/50 px-3 py-0.5 rounded-full shadow-xs">
             TAP HERE
           </span>
 
@@ -34,13 +34,13 @@ export default function InstagramSection() {
             href={weddingData.branding.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 xs:px-6 py-2 xs:py-2.5 rounded-full bg-white/95 hover:bg-white active:scale-95 text-[#580B1A] border border-[#CDAE80]/70 shadow-lg hover:shadow-xl transition-all group"
+            className="inline-flex items-center gap-2.5 min-h-[44px] px-5 sm:px-6 py-2.5 rounded-full bg-[#FFFCF5] hover:bg-white active:scale-95 text-[#590D20] border border-[#C99A42]/75 shadow-md hover:shadow-xl transition-all group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C99A42] focus-visible:ring-offset-2"
           >
-            <InstagramIcon size={15} />
-            <span className="font-sans text-[11px] xs:text-xs sm:text-sm font-semibold tracking-wider">
+            <InstagramIcon size={16} />
+            <span className="font-sans text-[12px] sm:text-[13px] font-semibold tracking-wider text-[#590D20]">
               {weddingData.branding.instagramHandle}
             </span>
-            <ExternalLink size={11} className="opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-[#CDAE80]" />
+            <ExternalLink size={12} className="opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-[#C99A42]" />
           </a>
         </div>
       </div>

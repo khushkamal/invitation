@@ -31,8 +31,8 @@ export default function WeddingStory() {
       </div>
 
       {/* 4. Narrative Story Paragraph (9 centered lines matching user reference with airy line spacing and deep maroon color) */}
-      <div className="gsap-reveal absolute top-[23.6%] left-1/2 -translate-x-1/2 w-[68%] sm:w-[64%] md:w-[58%] text-center pointer-events-auto z-10">
-        <p className="font-sans text-[clamp(6px,0.86vw,7.8px)] sm:text-[clamp(8.5px,1.0vw,12px)] md:text-[clamp(11.5px,1.05vw,15px)] text-[#420912] font-semibold leading-[1.48] sm:leading-[1.54] md:leading-[1.6] select-none tracking-normal">
+      <div className="gsap-reveal absolute top-[23.6%] left-1/2 -translate-x-1/2 w-[72%] sm:w-[66%] md:w-[58%] text-center pointer-events-auto z-10">
+        <p className="font-sans text-[clamp(8px,1.05vw,11.5px)] sm:text-[clamp(10px,1.15vw,13px)] md:text-[clamp(12px,1.2vw,15px)] text-[#3B0716] font-medium leading-[1.52] sm:leading-[1.58] md:leading-[1.62] select-none tracking-normal">
           <span className="block">Some souls are destined to find each other, no matter how long the journey.</span>
           <span className="block">Krishna and Radha&apos;s story wasn&apos;t just about falling in love—it was about</span>
           <span className="block">finding peace in each other&apos;s presence, strength in every challenge, and a</span>

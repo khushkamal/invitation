@@ -34,17 +34,17 @@ export default function HeroScene() {
       {/* LAYER 3: Centered Spacious Serif Typography (z-[3]) */}
       <div className="gsap-p1-text absolute inset-0 flex flex-col items-center justify-center px-4 text-center z-[3] pointer-events-none will-change-transform">
         {/* RAHUL */}
-        <h1 className="gsap-p1-groom gsap-p1-title font-asul font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-white tracking-[0.18em] uppercase drop-shadow-[0_4px_24px_rgba(0,0,0,0.35)] leading-tight pl-[0.18em] font-normal will-change-transform">
+        <h1 className="gsap-p1-groom gsap-p1-title font-asul font-serif text-[clamp(2.4rem,7.5vw,7.5rem)] text-white tracking-[0.16em] uppercase drop-shadow-[0_4px_24px_rgba(0,0,0,0.35)] leading-tight pl-[0.16em] font-normal will-change-transform">
           {weddingData.couple.groom.name}
         </h1>
 
         {/* WEDS */}
-        <p className="gsap-p1-weds gsap-p1-title font-jost text-xs sm:text-sm md:text-base text-[#CDAE80] font-semibold tracking-[0.35em] uppercase my-2 sm:my-3.5 drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)] pl-[0.35em] will-change-transform">
+        <p className="gsap-p1-weds gsap-p1-title font-jost text-[clamp(11px,1.2vw,16px)] text-[#E5C982] font-semibold tracking-[0.32em] uppercase my-2 sm:my-3.5 drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)] pl-[0.32em] will-change-transform">
           WEDS
         </p>
 
         {/* KIRAN */}
-        <h1 className="gsap-p1-bride gsap-p1-title font-asul font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-white tracking-[0.18em] uppercase drop-shadow-[0_4px_24px_rgba(0,0,0,0.35)] leading-tight pl-[0.18em] font-normal will-change-transform">
+        <h1 className="gsap-p1-bride gsap-p1-title font-asul font-serif text-[clamp(2.4rem,7.5vw,7.5rem)] text-white tracking-[0.16em] uppercase drop-shadow-[0_4px_24px_rgba(0,0,0,0.35)] leading-tight pl-[0.16em] font-normal will-change-transform">
           {weddingData.couple.bride.name}
         </h1>
       </div>

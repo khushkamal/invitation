@@ -1,46 +1,57 @@
 @import "tailwindcss";
+@config "../../tailwind.config.js";
+@source "../components";
+@source "../data";
+
 
 :root {
-  /* Official Framer Reference Color System */
-  --royal-wine: #580B1A;
-  --royal-wine-deep: #3E0510;
+  /* Centralized Wedding Design System Tokens (Requirement 2) */
+  --color-burgundy: #590D20;
+  --color-maroon-dark: #3B0716;
+  --color-royal-blue: #123B86;
+  --color-royal-blue-hover: #0E2F6C;
+  --color-antique-gold: #C99A42;
+  --color-antique-gold-hover: #B58835;
+  --color-champagne: #E5C982;
+  --color-champagne-light: #F3E4BF;
+  --color-ivory: #FFFCF5;
+  --color-ivory-alt: #F7F4EC;
+  --color-paper: #F7ECDD;
+  --color-text-primary: #392D21;
+  --color-text-secondary: #665B4E;
+  --color-text-faint: #8A7E72;
+
+  /* Framer Reference Aliases */
+  --royal-wine: var(--color-burgundy);
+  --royal-wine-deep: var(--color-maroon-dark);
   --royal-wine-light: #7A1226;
-  
-  --champagne-gold: #CDAE80;
-  --champagne-gold-light: #E2CCA6;
+  --champagne-gold: var(--color-antique-gold);
+  --champagne-gold-light: var(--color-champagne);
   --champagne-gold-deep: #B38F5A;
-  --gold-glow: rgba(205, 174, 128, 0.28);
-
-  --warm-ivory: #FFFCF5;
-  --warm-ivory-alt: #F5F3EF;
+  --gold-glow: rgba(201, 154, 66, 0.25);
+  --warm-ivory: var(--color-ivory);
+  --warm-ivory-alt: var(--color-ivory-alt);
   --warm-ivory-card: #FFFFFF;
-
-  --charcoal-black: #1A1A1A;
-  --charcoal-muted: #555555;
-  --charcoal-faint: #888888;
+  --charcoal-black: var(--color-text-primary);
+  --charcoal-muted: var(--color-text-secondary);
+  --charcoal-faint: var(--color-text-faint);
 
   --whatsapp-green: #25D366;
   --whatsapp-hover: #1EBE5D;
 
-  /* Aliases for components */
-  --bg-sandstone: var(--warm-ivory);
-  --bg-sandstone-light: #FFFFFF;
-  --bg-sandstone-deep: var(--warm-ivory-alt);
+  --border-gold-subtle: rgba(201, 154, 66, 0.35);
+  --border-gold-accent: rgba(201, 154, 66, 0.75);
+  --border-gold-solid: var(--color-antique-gold);
+  --border-panel: rgba(201, 154, 66, 0.45);
 
-  --temple-gold: var(--champagne-gold);
-  --temple-gold-light: var(--champagne-gold-light);
-  --temple-bronze: #886535;
+  /* Typography Scales (Requirement 3) */
+  --font-size-display: clamp(2.2rem, 4.5vw, 4.5rem);
+  --font-size-section: clamp(1.8rem, 3.5vw, 3.25rem);
+  --font-size-component: clamp(1.5rem, 2.5vw, 2.25rem);
+  --font-size-body: clamp(0.875rem, 1.1vw, 1rem);
+  --font-size-label: clamp(0.75rem, 0.9vw, 0.875rem);
 
-  --crimson-kumkum: var(--royal-wine);
-
-  --text-charcoal: var(--charcoal-black);
-  --text-muted: var(--charcoal-muted);
-  --text-faint: var(--charcoal-faint);
-
-  --border-gold-subtle: rgba(205, 174, 128, 0.35);
-  --border-gold-accent: rgba(205, 174, 128, 0.75);
-
-  /* Typography */
+  /* Font Families */
   --font-script: 'Alex Brush', 'Great Vibes', 'Luxurious Script', cursive;
   --font-instrument: 'Instrument Serif', Georgia, serif;
   --font-garamond: 'EB Garamond', Georgia, serif;
@@ -61,13 +72,27 @@
   --font-serif: 'Playfair Display', serif;
   --font-inscribed: 'Instrument Serif', serif;
 
+  /* Button Tokens (Requirement 5) */
+  --btn-min-height: 44px;
+  --btn-padding-x: 22px;
+  --btn-font-size: 14px;
+  --btn-radius-pill: 9999px;
+  --btn-radius-rect: 6px;
+
+  /* Spacing Tokens */
+  --space-card-padding: clamp(16px, 3vw, 28px);
+  --space-heading-meta: 12px;
+  --space-meta-desc: 14px;
+  --space-desc-cta: 20px;
+  --space-col-gap: clamp(20px, 3.5vw, 36px);
+
   --transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@layer base {
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
 }
 
 html {
@@ -77,6 +102,26 @@ html {
   font-family: var(--font-sans);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
 
 body {
@@ -168,7 +213,121 @@ body {
 }
 
 .wine-text {
-  color: #580B1A;
+  color: var(--color-burgundy);
+}
+
+/* Standardized Wedding Buttons (Requirement 5) */
+.btn-wedding-location {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--btn-min-height);
+  padding: 0 var(--btn-padding-x);
+  border-radius: var(--btn-radius-pill);
+  background-color: var(--color-royal-blue);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: var(--btn-font-size);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--color-antique-gold);
+  box-shadow: 0 2px 8px rgba(18, 59, 134, 0.25);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-wedding-location:hover {
+  background-color: var(--color-royal-blue-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(18, 59, 134, 0.35);
+}
+
+.btn-wedding-location:active {
+  transform: scale(0.97);
+}
+
+.btn-wedding-location:focus-visible {
+  outline: none;
+  ring: 2px solid var(--color-antique-gold);
+  ring-offset: 2px;
+}
+
+/* Standardized WhatsApp RSVP Button (Requirement 6) */
+.btn-wedding-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 46px;
+  padding: 12px 28px;
+  border-radius: var(--btn-radius-rect);
+  background-color: var(--color-maroon-dark);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(201, 154, 66, 0.55);
+  box-shadow: 0 6px 20px rgba(59, 7, 22, 0.35);
+  transition: all 0.22s var(--transition-smooth);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-wedding-whatsapp:hover {
+  background-color: #4a091c;
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(59, 7, 22, 0.45);
+}
+
+.btn-wedding-whatsapp:active {
+  transform: scale(0.97);
+}
+
+.btn-wedding-whatsapp:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(201, 154, 66, 0.7);
+}
+
+/* Standardized Royal Seal Badge (Requirement 7) */
+.badge-royal-seal {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 8px 16px;
+  border-radius: var(--btn-radius-pill);
+  background-color: rgba(255, 252, 245, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--color-antique-gold);
+  color: var(--color-burgundy);
+  font-family: var(--font-jost);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  user-select: none;
+}
+
+.badge-royal-seal:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 18px rgba(89, 13, 32, 0.18);
+  border-color: var(--color-burgundy);
+}
+
+.badge-royal-seal:active {
+  transform: scale(0.96);
+}
+
+.badge-royal-seal:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(201, 154, 66, 0.7);
 }
 
 /* Audio Player Floating Pill Styling */
