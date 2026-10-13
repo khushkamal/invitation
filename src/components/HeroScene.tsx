@@ -28,7 +28,7 @@ export default function HeroScene() {
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-[2] opacity-80">
         <div className="gsap-cloud-1 absolute top-8 left-6 md:left-20 w-72 md:w-96 h-28 md:h-36 rounded-full bg-white/80 blur-3xl will-change-transform" />
         <div className="gsap-cloud-2 absolute top-20 right-6 md:right-20 w-80 md:w-[32rem] h-32 md:h-44 rounded-full bg-white/75 blur-3xl will-change-transform" />
-        <div className="gsap-cloud-3 absolute top-52 left-1/4 w-64 md:w-80 h-24 md:h-32 rounded-full bg-white/65 blur-2xl will-change-transform" />
+        <div className="gsap-cloud-3 absolute top-52 left-1/4 w-48 sm:w-64 md:w-80 h-24 md:h-32 rounded-full bg-white/65 blur-2xl will-change-transform" />
       </div>
 
       {/* LAYER 3: Centered Spacious Serif Typography (z-[3]) */}
