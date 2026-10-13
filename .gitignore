@@ -41,7 +41,7 @@ pnpm-debug.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# ide / editors
+# ide & editors
 .vscode/
 .idea/
 *.suo
@@ -49,6 +49,8 @@ next-env.d.ts
 *.njsproj
 *.sln
 *.sw?
+*.sublime-project
+*.sublime-workspace
 
 # OS generated files
 .DS_Store
@@ -61,16 +63,37 @@ Thumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 
-# scratch & test artifacts
+# scratch, debug, and test scripts
+check_*.js
 check_*.mjs
+capture_*.js
 capture_*.mjs
+crop_*.js
 crop_*.mjs
+zoom_*.js
 zoom_*.mjs
+analyze_*.js
 analyze_*.mjs
+debug_*.js
+debug_*.mjs
+test_*.js
+test_*.mjs
+take_*.js
+take_*.mjs
+find_*.js
+find_*.mjs
+list_*.js
+list_*.mjs
+
+# temp & scratch directories
 *.tmp
 temp/
+tmp/
 scratch/
 scripts/
 framer_dump.html
-page*_*.png
-ref_*.png
+/page*.png
+/ref_*.png
+*.png.bak
+*.jpg.bak
+*.webp.bak

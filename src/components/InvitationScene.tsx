@@ -11,7 +11,7 @@ export default function InvitationScene() {
     >
       {/* 100% Full-Width Archway Background Illustration */}
       <img
-        src="/theartfulinvites/page2_bg.webp"
+        src="/invitation/page2_bg.webp"
         alt="Royal Invitation Folio Arch"
         className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
         style={{
@@ -26,7 +26,7 @@ export default function InvitationScene() {
       {/* 1. Ganesha Emblem (top: 22.5%) */}
       <div className="gsap-p2-ganesh absolute top-[22.5%] left-1/2 -translate-x-1/2 w-[7vw] max-w-[100px] min-w-[45px] aspect-square pointer-events-auto drop-shadow-sm">
         <img
-          src="/theartfulinvites/page2_ganesh.webp"
+          src="/invitation/page2_ganesh.webp"
           alt="Lord Ganesha"
           className="w-full h-full object-contain"
         />

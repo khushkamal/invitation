@@ -16,7 +16,7 @@ export default function TempleArtwork({ className = '', showTrees = true }: Temp
           
           {/* LAYER 4: Foreground Temple Architecture Gopuram (z-[4]) */}
           <img
-            src="/theartfulinvites/page1_temple.webp"
+            src="/invitation/page1_temple.webp"
             alt="Sri Meenakshi Temple Architecture Dravidian Gopuram"
             width={2032}
             height={3072}
@@ -33,7 +33,7 @@ export default function TempleArtwork({ className = '', showTrees = true }: Temp
           {/* LAYER 5: Foreground Botanical Trees Overlay (z-[5]) - Perfectly Aligned 1:1 with Temple */}
           {showTrees && (
             <img
-              src="/theartfulinvites/page1_tree.webp"
+              src="/invitation/page1_tree.webp"
               alt="Botanical Trees Framing"
               width={2032}
               height={3072}

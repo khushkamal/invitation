@@ -34,7 +34,7 @@ export default function RSVPSection() {
     >
       {/* Page 6 Background Artwork (Zoomed in ~2.5%) */}
       <img
-        src="/theartfulinvites/page6_bg.webp"
+        src="/invitation/page6_bg.webp"
         alt="RSVP Background"
         className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none scale-[1.025] transform origin-center will-change-transform"
       />

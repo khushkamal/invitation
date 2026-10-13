@@ -76,7 +76,7 @@ export default function LocationFrame() {
 
         {/* Layer 2: Elaborate Golden Ornamental Frame PNG (Foreground Overlay) */}
         <img
-          src="/theartfulinvites/page5_golden_frame_portrait.png"
+          src="/invitation/page5_golden_frame_portrait.png"
           alt="Gold ornate location frame overlay"
           className="absolute inset-0 w-full h-full object-contain pointer-events-none drop-shadow-[0_12px_28px_rgba(0,0,0,0.4)] select-none z-20"
         />

@@ -7,12 +7,12 @@ import confetti from 'canvas-confetti';
 import CountdownSection from './CountdownSection';
 
 const magicPhotos = [
-  '/theartfulinvites/magic1.webp',
-  '/theartfulinvites/magic2.webp',
-  '/theartfulinvites/magic3.webp',
-  '/theartfulinvites/magic4.webp',
-  '/theartfulinvites/magic5.webp',
-  '/theartfulinvites/magic6.webp',
+  '/invitation/magic1.webp',
+  '/invitation/magic2.webp',
+  '/invitation/magic3.webp',
+  '/invitation/magic4.webp',
+  '/invitation/magic5.webp',
+  '/invitation/magic6.webp',
 ];
 
 interface Particle {
@@ -152,7 +152,7 @@ export default function FinalTempleScene() {
       >
         {/* Distinctive Final Scene Illustrated Landscape (Full width and full height edge-to-edge) */}
         <img
-          src="/theartfulinvites/final_scene_temple_landscape.png"
+          src="/invitation/final_scene_temple_landscape.png"
           alt="Sacred Golden Temple Landscape & Botanical Artwork"
           className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none"
         />

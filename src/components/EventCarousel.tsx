@@ -124,7 +124,7 @@ export default function EventCarousel({ initialIdx = 0 }: EventCarouselProps) {
     >
       {/* 1. OUTER BACKGROUND: Soft Illustrated Traditional Indian Pattern */}
       <img
-        src="/theartfulinvites/page3_bg.webp"
+        src="/invitation/page3_bg.webp"
         alt="Wedding Event Celebrations Background Artwork"
         className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-95"
       />

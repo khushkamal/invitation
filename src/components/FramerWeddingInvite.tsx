@@ -18,35 +18,35 @@ import RSVPSection from './RSVPSection';
 import FinalTempleScene from './FinalTempleScene';
 
 const CRITICAL_ASSETS = [
-  '/theartfulinvites/page1_sky.webp',
-  '/theartfulinvites/page1_temple.webp',
-  '/theartfulinvites/page1_tree.webp',
-  '/theartfulinvites/page2_bg.webp',
-  '/theartfulinvites/page2_ganesh.webp',
-  '/theartfulinvites/page3_bg.webp',
-  '/theartfulinvites/event_haldi.png',
-  '/theartfulinvites/event_mehendi.png',
-  '/theartfulinvites/event_sangeet.png',
-  '/theartfulinvites/event_wedding.png',
-  '/theartfulinvites/event_reception.png',
-  '/theartfulinvites/page4_sky.webp',
-  '/theartfulinvites/page4_cloud.webp',
-  '/theartfulinvites/page4_temple.webp',
-  '/theartfulinvites/page4_couple_cutout.webp',
-  '/theartfulinvites/page5_bg.webp',
-  '/theartfulinvites/page5_golden_frame_portrait.png',
-  '/theartfulinvites/page5_slide1.jpeg',
-  '/theartfulinvites/page5_slide2.jpeg',
-  '/theartfulinvites/page5_slide3.jpeg',
-  '/theartfulinvites/page5_slide4.jpeg',
-  '/theartfulinvites/page6_bg.webp',
-  '/theartfulinvites/final_scene_temple_landscape.png',
-  '/theartfulinvites/magic1.webp',
-  '/theartfulinvites/magic2.webp',
-  '/theartfulinvites/magic3.webp',
-  '/theartfulinvites/magic4.webp',
-  '/theartfulinvites/magic5.webp',
-  '/theartfulinvites/magic6.webp',
+  '/invitation/page1_sky.webp',
+  '/invitation/page1_temple.webp',
+  '/invitation/page1_tree.webp',
+  '/invitation/page2_bg.webp',
+  '/invitation/page2_ganesh.webp',
+  '/invitation/page3_bg.webp',
+  '/invitation/event_haldi.png',
+  '/invitation/event_mehendi.webp',
+  '/invitation/event_sangeet.webp',
+  '/invitation/event_wedding.webp',
+  '/invitation/event_reception.webp',
+  '/invitation/page4_sky.webp',
+  '/invitation/page4_cloud.webp',
+  '/invitation/page4_temple.webp',
+  '/invitation/page4_couple_cutout.webp',
+  '/invitation/page5_bg.webp',
+  '/invitation/page5_golden_frame_portrait.png',
+  '/invitation/page5_slide1.jpeg',
+  '/invitation/page5_slide2.jpeg',
+  '/invitation/page5_slide3.jpeg',
+  '/invitation/page5_slide4.jpeg',
+  '/invitation/page6_bg.webp',
+  '/invitation/final_scene_temple_landscape.png',
+  '/invitation/magic1.webp',
+  '/invitation/magic2.webp',
+  '/invitation/magic3.webp',
+  '/invitation/magic4.webp',
+  '/invitation/magic5.webp',
+  '/invitation/magic6.webp',
 ];
 
 export default function FramerWeddingInvite() {
@@ -465,7 +465,7 @@ export default function FramerWeddingInvite() {
           {/* 1. BACKGROUND LAYER: Full-Screen Light-Blue Sky (Continuous throughout) */}
           <div className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
             <img
-              src="/theartfulinvites/page4_sky.webp"
+              src="/invitation/page4_sky.webp"
               alt="Light-Blue Sky Background"
               className="gsap-p4-sky absolute inset-0 w-full h-[115%] object-cover pointer-events-none -top-[7%] will-change-transform"
             />
@@ -476,7 +476,7 @@ export default function FramerWeddingInvite() {
             {/* Cloud 1: Upper Left Prominent Cloud */}
             <div className="gsap-p4-cloud-1 absolute top-[4%] sm:top-[6%] -left-[8%] sm:-left-[4%] w-[280px] sm:w-[400px] md:w-[500px] lg:w-[600px] max-w-[50vw] aspect-[1185/1032] will-change-transform pointer-events-none select-none">
               <img
-                src="/theartfulinvites/page4_cloud.webp"
+                src="/invitation/page4_cloud.webp"
                 alt="Ivory Cloud 1"
                 className="w-full h-full object-contain pointer-events-none select-none opacity-95 drop-shadow-sm"
               />
@@ -484,7 +484,7 @@ export default function FramerWeddingInvite() {
             {/* Cloud 2: Mid-Upper Drifting Cloud */}
             <div className="gsap-p4-cloud-2 absolute top-[16%] sm:top-[14%] left-[28%] sm:left-[32%] w-[220px] sm:w-[320px] md:w-[420px] lg:w-[500px] max-w-[42vw] aspect-[1185/1032] will-change-transform pointer-events-none select-none">
               <img
-                src="/theartfulinvites/page4_cloud.webp"
+                src="/invitation/page4_cloud.webp"
                 alt="Ivory Cloud 2"
                 className="w-full h-full object-contain pointer-events-none select-none opacity-90 drop-shadow-sm"
               />
@@ -492,7 +492,7 @@ export default function FramerWeddingInvite() {
             {/* Cloud 3: Ambient Soft Cloud */}
             <div className="gsap-p4-cloud-3 absolute top-[30%] sm:top-[26%] left-[4%] sm:left-[8%] w-[190px] sm:w-[270px] md:w-[350px] lg:w-[420px] max-w-[35vw] aspect-[1185/1032] opacity-75 will-change-transform pointer-events-none select-none">
               <img
-                src="/theartfulinvites/page4_cloud.webp"
+                src="/invitation/page4_cloud.webp"
                 alt="Ivory Cloud 3"
                 className="w-full h-full object-contain pointer-events-none select-none"
               />
@@ -506,7 +506,7 @@ export default function FramerWeddingInvite() {
             {/* Layer 3: Colorful South Indian Meenakshi-style Temple (z-20) */}
             <div className="absolute inset-0 w-full h-full z-20 pointer-events-none">
               <img
-                src="/theartfulinvites/page4_temple.webp"
+                src="/invitation/page4_temple.webp"
                 alt="Colorful South Indian Meenakshi-style Temple"
                 className="gsap-p4-temple w-full h-full object-contain pointer-events-none"
               />
@@ -515,7 +515,7 @@ export default function FramerWeddingInvite() {
             {/* Layer 4: Foreground Bride and Groom Illustration (Framed naturally in temple doorway) */}
             <div className="gsap-p4-couple-wrap absolute top-[12%] left-0 w-full h-full z-30 pointer-events-none will-change-transform opacity-100">
               <img
-                src="/theartfulinvites/page4_couple_cutout.webp"
+                src="/invitation/page4_couple_cutout.webp"
                 alt="Bride and Groom Cutout"
                 className="gsap-p4-couple w-full h-full object-contain pointer-events-none drop-shadow-[0_8px_25px_rgba(0,0,0,0.32)] will-change-transform opacity-100"
               />
@@ -530,7 +530,7 @@ export default function FramerWeddingInvite() {
           className="relative w-full overflow-hidden select-none bg-[#590D20] aspect-[2048/3072]"
         >
           <img
-            src="/theartfulinvites/page5_bg.webp"
+            src="/invitation/page5_bg.webp"
             alt="Our Story Background"
             decoding="auto"
             loading="lazy"

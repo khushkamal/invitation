@@ -12,7 +12,7 @@ export default function HeroScene() {
     >
       {/* LAYER 1: Vivid Blue Sky Background (100vw x 100svh, z-[1]) */}
       <img
-        src="/theartfulinvites/page1_sky.webp"
+        src="/invitation/page1_sky.webp"
         alt="Illustrated Blue Sky"
         className="gsap-p1-sky absolute inset-0 w-full h-[120%] block object-cover object-center -top-[10%] will-change-transform z-[1] pointer-events-none"
         style={{

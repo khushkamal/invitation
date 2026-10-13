@@ -18,124 +18,49 @@ export interface WeddingEvent {
   illustrationType: 'haldi' | 'mehendi' | 'sangeet' | 'wedding' | 'reception' | 'engagement';
 }
 
-export interface GalleryItem {
-  id: string;
-  image: string;
-  title: string;
-  subtitle: string;
-  caption: string;
-  chapter: string;
-  category: 'portraits' | 'rituals' | 'sanctum' | 'celebration';
-  aspect: 'arch' | 'circle' | 'vertical' | 'wide' | 'classic';
-  filmTone?: string;
-}
-
-export interface BlessingItem {
-  id: string;
-  author: string;
-  city: string;
-  message: string;
-  date: string;
-}
-
-export interface WeddingSEO {
-  title: string;
-  description: string;
-  canonicalUrl: string;
-  siteUrl: string;
-  ogImage: string;
-  ogImageAlt: string;
-  ogType: 'website' | 'article';
-  locale: string;
-  themeColor: string;
-  twitterCard: 'summary' | 'summary_large_image';
-  keywords: string[];
-  author: string;
-  favicon: string;
-  appleTouchIcon: string;
-}
-
-function createPerson(name: string, fullName: string, parents: string, lineage: string): string & {
-  name: string;
-  fullName: string;
-  parents: string;
-  lineage: string;
-} {
-  const str = new String(name) as any;
-  str.name = name;
-  str.fullName = fullName;
-  str.parents = parents;
-  lineage && (str.lineage = lineage);
-  return str;
-}
-
-function createWeddingDate(date: string, displayDate: string, dateISO: string, time: string, tamilMonth = "Margazhi 3, Subhakruthu Varudam"): string & {
-  dateString: string;
-  displayDate: string;
-  day: string;
-  muhurthamTime: string;
-  tamilMonth: string;
-} {
-  const str = new String(date) as any;
-  str.dateString = dateISO;
-  str.displayDate = displayDate;
-  str.day = "Thursday";
-  str.muhurthamTime = time;
-  str.tamilMonth = tamilMonth;
-  return str;
-}
-
 export const weddingData = {
   couple: {
-    bride: createPerson(
-      "Kiran",
-      "Kiran Sharma",
-      "Mr. [Bride's Father Name] & Mrs. [Bride's Mother Name]",
-      "Granddaughter of Mr. [Bride's Grandfather Name] & Mrs. [Bride's Grandmother Name]"
-    ),
-    groom: createPerson(
-      "Rahul",
-      "Rahul Verma",
-      "Mr. [Father's Name] & Mrs. [Mother's Name]",
-      "Grandson of Mr. [Grandfather's Name] & Mrs. [Grandmother's Name]"
-    ),
-    combinedNames: "Rahul & Kiran",
-    weddingTitle: "RAHUL WEDS KIRAN",
+    groom: {
+      name: "Rahul",
+      fullName: "Rahul Verma",
+      role: "Groom",
+      parents: "Mr. Ramesh Verma & Mrs. Sunita Verma",
+      grandparents: "Late Mr. Om Prakash Verma & Mrs. Shanti Verma",
+      bio: "An architect with a passion for heritage preservation, seeking eternal companionship."
+    },
+    bride: {
+      name: "Kiran",
+      fullName: "Kiran Sharma",
+      role: "Bride",
+      parents: "Mr. Rajesh Sharma & Mrs. Anita Sharma",
+      grandparents: "Late Mr. Harish Chandra Sharma & Mrs. Kaushalya Sharma",
+      bio: "A classical vocalist and curator of Indian art, stepping into a sacred union."
+    },
+    combinedNames: "Kiran & Rahul",
+    weddingDate: "17 December 2026",
+    tagline: "An invitation to witness the sacred union of two souls under divine grace.",
     hashtag: "#Rahulkikiran"
   },
 
-  weddingDate: createWeddingDate(
-    "17 December 2026",
-    "Thursday, 17th December 2026",
-    "2026-12-17T11:30:00",
-    "11:30 AM (Auspicious Muhurtham)"
-  ),
-
-  hero: {
-    title: "RAHUL & KIRAN",
-    subtitle: "Invite",
-    badge: "WEDS",
-    requestNote: "With the blessings of God and our beloved parents, we cordially invite you to celebrate the wedding of",
-    invocationSanskrit: "॥ ॐ श्री गणेशाय नमः ॥",
-    invocationEnglish: "With the divine blessings of Lord Ganesha & our beloved elders"
-  },
-
-  invocation: {
-    sanskrit: "॥ ॐ श्री गणेशाय नमः ॥",
-    english: "With the divine blessings of Lord Ganesha & our beloved elders"
-  },
-
-  story: {
-    title: "Our Story",
-    subtitle: "A Journey Written in the Stars",
-    content: "Some souls are destined to find each other, no matter how long the journey. Krishna and Radha's story wasn't just about falling in love—it was about finding peace in each other's presence, strength in every challenge, and a home in each other's hearts. Through every smile, every tear, and every moment in between, their love only grew deeper. Today, as they take the sacred vows of forever, they carry with them not only dreams of a beautiful future but also the blessings of everyone who has been part of their journey. With hearts full of love and gratitude, they invite you to celebrate the beginning of their forever."
+  weddingDate: {
+    year: 2026,
+    month: "December",
+    day: 17,
+    fullDisplay: "17 December 2026",
+    time: "11:30 AM",
+    dateString: "2026-12-17T11:30:00+05:30",
+    timezone: "Asia/Kolkata"
   },
 
   invitation: {
-    shloka: "||ॐ श्री गणेशाय नमः||",
-    blessingText: "With the blessings of God and our beloved parents,\nwe cordially invite you to grace the auspicious wedding ceremony of their beloved son",
+    invocation: "॥ ॐ श्री गणेशाय नमः ॥",
+    openingBlessing: "With the blessings of God and our beloved parents, we cordially",
+    action: "Invite",
+    groomBlessingIntro: "With the blessings of the Almighty and our beloved elders,",
     groomGrandparents: "Mr. [Grandfather's Name] & Mrs. [Grandmother's Name]",
+    conjunction: "together with",
     groomParents: "Mr. [Father's Name] & Mrs. [Mother's Name]",
+    groomLine: "cordially invite you to grace the auspicious wedding ceremony of their beloved son",
     brideParents: "Mr. [Bride's Father Name] & Mrs. [Bride's Mother Name]",
     brideGrandparents: "Mr. [Bride's Grandfather Name] & Mrs. [Bride's Grandmother Name]",
     inviteAction: "Invite",
@@ -148,16 +73,16 @@ export const weddingData = {
     scriptTitle: "Our Story",
     narrative: "Some souls are destined to find each other, no matter how long the journey. Krishna and Radha's story wasn't just about falling in love—it was about finding peace in each other's presence, strength in every challenge, and a home in each other's hearts. Through every smile, every tear, and every moment in between, their love only grew deeper. Today, as they take the sacred vows of forever, they carry with them not only dreams of a beautiful future but also the blessings of everyone who has been part of their journey. With hearts full of love and gratitude, they invite you to celebrate the beginning of their forever.",
     slides: [
-      "/theartfulinvites/page5_slide1.jpeg",
-      "/theartfulinvites/page5_slide2.jpeg",
-      "/theartfulinvites/page5_slide3.jpeg",
-      "/theartfulinvites/page5_slide4.jpeg"
+      "/invitation/page5_slide1.jpeg",
+      "/invitation/page5_slide2.jpeg",
+      "/invitation/page5_slide3.jpeg",
+      "/invitation/page5_slide4.jpeg"
     ]
   },
 
   coupleCelestial: {
     scriptTagline: "Together Forever",
-    image: "/theartfulinvites/page4_couple_cutout.webp"
+    image: "/invitation/page4_couple_cutout.webp"
   },
 
   loveStory: [
@@ -197,7 +122,7 @@ export const weddingData = {
       attire: "Sunny Yellow & Floral Festive",
       attireColorHex: "#E5A93C",
       description: "Join us as we celebrate this beautiful occasion with love and blessings.",
-      image: "/theartfulinvites/event_haldi.png",
+      image: "/invitation/event_haldi.png",
       illustrationType: "haldi" as const
     },
     {
@@ -215,7 +140,7 @@ export const weddingData = {
       attire: "Festive Pastels & Ethnic Charm",
       attireColorHex: "#2E6B3E",
       description: "An evening of mehendi artistry, music, and family celebration.",
-      image: "/theartfulinvites/event_mehendi.webp",
+      image: "/invitation/event_mehendi.webp",
       illustrationType: "mehendi" as const
     },
     {
@@ -233,7 +158,7 @@ export const weddingData = {
       attire: "Royal Glamour & Indo-Western",
       attireColorHex: "#881324",
       description: "Dance, songs, and joy with both families before the wedding day.",
-      image: "/theartfulinvites/event_sangeet.webp",
+      image: "/invitation/event_sangeet.webp",
       illustrationType: "sangeet" as const
     },
     {
@@ -252,7 +177,7 @@ export const weddingData = {
       attire: "Traditional Silk, Sherwani & Zari",
       attireColorHex: "#580B1A",
       description: "Witness our sacred vows and wedding rituals in the presence of loved ones.",
-      image: "/theartfulinvites/event_wedding.webp",
+      image: "/invitation/event_wedding.webp",
       illustrationType: "wedding" as const
     },
     {
@@ -265,83 +190,14 @@ export const weddingData = {
       time: "7:00 PM onwards",
       venue: "Taj Hotel Mumbai",
       address: "Taj Hotel Mumbai",
-      mapsUrl: "https://maps.google.com/?q=Taj+Hotel+Mumbai",
-      mapLink: "https://maps.google.com/?q=Taj+Hotel+Mumbai",
+      mapsUrl: "https://maps.google.com/?q=Taj+Hotel Mumbai",
+      mapLink: "https://maps.google.com/?q=Taj+Hotel Mumbai",
       attire: "Black Tie & Regal Formals",
       attireColorHex: "#CDAE80",
       description: "Celebrate the newlyweds with dinner, blessings, and heartfelt toasts.",
-      image: "/theartfulinvites/event_reception.webp",
+      image: "/invitation/event_reception.webp",
       illustrationType: "reception" as const
     }
-  ],
-
-  gallery: [
-    "/theartfulinvites/page2_bg.webp",
-    "/theartfulinvites/page1_temple.webp",
-    "/theartfulinvites/page1_sky.webp",
-    "/theartfulinvites/page1_tree.webp",
-    "/theartfulinvites/page5_bg.webp",
-    "/theartfulinvites/page3_bg.webp",
-    "/theartfulinvites/page6_bg.webp",
-    "/theartfulinvites/gallery_4.webp"
-  ],
-
-  galleryItems: [
-    {
-      id: 'g1',
-      chapter: 'Moments of Love',
-      title: 'Forever Begins',
-      subtitle: 'Kiran & Rahul',
-      caption: 'A tender glance and an eternity of shared dreams.',
-      image: '/theartfulinvites/page2_bg.webp',
-      category: 'portraits' as const,
-      aspect: 'arch' as const,
-      filmTone: 'Kodak Portra 400 • Golden Morning'
-    },
-    {
-      id: 'g2',
-      chapter: 'Our Journey',
-      title: 'Serenade of Souls',
-      subtitle: 'The Sacred Bond',
-      caption: 'Krishna and Radha’s eternal bond mirrored in their love.',
-      image: '/theartfulinvites/page1_temple.webp',
-      category: 'portraits' as const,
-      aspect: 'vertical' as const,
-      filmTone: 'Fujifilm Pro 400H • Delicate Detail'
-    },
-    {
-      id: 'g3',
-      chapter: 'Elegance',
-      title: 'Royal Heritage',
-      subtitle: 'Regal Charm',
-      caption: 'Wrapped in royal silk and timeless grace.',
-      image: '/theartfulinvites/page1_sky.webp',
-      category: 'portraits' as const,
-      aspect: 'classic' as const,
-      filmTone: 'Kodak Ektar 100 • Saturated Reds'
-    },
-    {
-      id: 'g4',
-      chapter: 'Celebration',
-      title: 'The Artful Glance',
-      subtitle: 'Smiles & Laughter',
-      caption: 'Celebrating every heartbeat with family and friends.',
-      image: '/theartfulinvites/page1_tree.webp',
-      category: 'celebration' as const,
-      aspect: 'wide' as const,
-      filmTone: 'Cinestill 800T • Amber Vilakku Glow'
-    }
-  ],
-
-  magicTrailImages: [
-    "/theartfulinvites/page2_bg.webp",
-    "/theartfulinvites/page1_sky.webp",
-    "/theartfulinvites/page1_temple.webp",
-    "/theartfulinvites/page1_tree.webp",
-    "/theartfulinvites/page5_bg.webp",
-    "/theartfulinvites/page3_bg.webp",
-    "/theartfulinvites/page6_bg.webp",
-    "/theartfulinvites/gallery_4.webp"
   ],
 
   music: "/music/wedding.mp3",
@@ -359,40 +215,6 @@ export const weddingData = {
     googleMapsUrl: "https://maps.google.com/?q=Taj+Hotel+Mumbai"
   },
 
-  familyBlessing: {
-    title: "Meet The Bride & Groom",
-    quote: "In the grace of the Almighty and our beloved elders, we seek your presence and auspicious blessings.",
-    families: "The Verma & Sharma Families cordially request the honor of your presence.",
-    elders: [
-      "Mr. [Grandfather's Name] & Mrs. [Grandmother's Name]",
-      "Mr. [Bride's Grandfather Name] & Mrs. [Bride's Grandmother Name]",
-      "Mr. [Father's Name] & Mrs. [Mother's Name]",
-      "Mr. [Bride's Father Name] & Mrs. [Bride's Mother Name]"
-    ],
-    lineageGroom: "With the blessings of the Almighty and our beloved elders, Mr. [Grandfather's Name] & Mrs. [Grandmother's Name] together with Mr. [Father's Name] & Mrs. [Mother's Name] cordially invite you to grace the auspicious wedding ceremony of their beloved son",
-    groomName: "RAHUL",
-    wedsText: "WEDS",
-    brideName: "KIRAN",
-    lineageBride: "beloved daughter of Mr. [Bride's Father Name] & Mrs. [Bride's Mother Name], and granddaughter of Mr. [Bride's Grandfather Name] & Mrs. [Bride's Grandmother Name]."
-  },
-
-  blessings: [
-    {
-      id: "b1",
-      author: "Grandfather & Grandmother",
-      city: "Family Elders",
-      message: "May your union be blessed with love that grows stronger with every passing year, bound by divine harmony and devotion.",
-      date: "August 2026"
-    },
-    {
-      id: "b2",
-      author: "Loving Parents",
-      city: "Home",
-      message: "To our dearest Kiran and Rahul: seeing you step into this sacred chapter brings our hearts the purest joy and pride.",
-      date: "August 2026"
-    }
-  ],
-
   rsvp: {
     title: "Will You Join Us?",
     note: "We would be truly honoured to celebrate this day with you. Please let us know if you'll be joining the festivities — your presence is the only gift we need.",
@@ -404,18 +226,18 @@ export const weddingData = {
   },
 
   branding: {
-    studio: "The Artful Invites",
-    instagramHandle: "@theartfulinvites",
-    instagramUrl: "https://instagram.com/theartfulinvites",
+    studio: "Rahul & Kiran Wedding",
+    instagramHandle: "@rahulkikiran",
+    instagramUrl: "https://instagram.com/rahulkikiran",
     hashtag: "#Rahulkikiran"
   },
 
   seo: {
     title: "KIRAN WEDS RAHUL — Wedding Invitation",
     description: "We're getting married! 💍 Click the link below to view our wedding invitation. We can't wait to celebrate with you!",
-    canonicalUrl: "https://theartfulinvitesdemo02.framer.website/",
-    siteUrl: "https://theartfulinvitesdemo02.framer.website/",
-    ogImage: "/theartfulinvites/hero_og.webp",
+    canonicalUrl: "https://rahulkikiran.wedding/",
+    siteUrl: "https://rahulkikiran.wedding/",
+    ogImage: "/invitation/hero_og.webp",
     ogImageAlt: "KIRAN WEDS RAHUL — Official Wedding Invitation",
     ogType: "website" as const,
     locale: "en_IN",
@@ -424,14 +246,13 @@ export const weddingData = {
     keywords: [
       "Kiran weds Rahul",
       "Rahul and Kiran",
-      "The Artful Invites",
       "Wedding Invitation",
       "Prem Ratan Marriage Palace & Resort",
       "December 2026 Wedding"
     ],
-    author: "The Artful Invites",
-    favicon: "/theartfulinvites/page2_ganesh.webp",
-    appleTouchIcon: "/theartfulinvites/page2_ganesh.webp"
+    author: "Rahul & Kiran",
+    favicon: "/invitation/page2_ganesh.webp",
+    appleTouchIcon: "/invitation/page2_ganesh.webp"
   }
 };
 
