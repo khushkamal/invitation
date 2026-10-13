@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import CountdownSection from './CountdownSection';
-import InstagramSection from './InstagramSection';
 
 const magicPhotos = [
   '/theartfulinvites/magic1.webp',
@@ -179,12 +178,6 @@ export default function FinalTempleScene() {
           </button>
         </div>
 
-        {/* Bottom Area: Social & Stationery Branding */}
-        <div className="absolute inset-x-0 bottom-[3%] sm:bottom-[4%] flex justify-center pointer-events-none z-10">
-          <div className="pointer-events-auto">
-            <InstagramSection />
-          </div>
-        </div>
       </section>
     </>
   );
