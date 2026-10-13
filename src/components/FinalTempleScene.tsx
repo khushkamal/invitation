@@ -41,12 +41,12 @@ export default function FinalTempleScene() {
       x: clientX,
       y: clientY,
       image: img,
-      rotation: (Math.random() - 0.5) * 22,
+      rotation: (Math.random() - 0.5) * 20,
     };
-    setParticles((prev) => [...prev.slice(-9), p]);
+    setParticles((prev) => [...prev.slice(-8), p]);
     setTimeout(() => {
       setParticles((prev) => prev.filter((item) => item.id !== p.id));
-    }, 1400);
+    }, 1450);
   };
 
   useEffect(() => {
@@ -67,8 +67,8 @@ export default function FinalTempleScene() {
         const now = Date.now();
 
         // Spawn smoothly on movement:
-        // Every ~35px of distance, or if moving at least 18px after 90ms
-        if (dist >= 35 || (dist >= 18 && now - lastSpawnTime.current > 90)) {
+        // Every ~45px of distance, or if moving at least 24px after 110ms
+        if (dist >= 45 || (dist >= 24 && now - lastSpawnTime.current > 110)) {
           lastPos.current = { x: clientX, y: clientY };
           lastSpawnTime.current = now;
           spawnMagic(clientX, clientY);
@@ -124,22 +124,22 @@ export default function FinalTempleScene() {
             <motion.div
               key={p.id}
               style={{ left: p.x, top: p.y }}
-              initial={{ opacity: 0, scale: 0.35, x: '-50%', y: '-50%', rotate: 0 }}
+              initial={{ opacity: 0, scale: 0.4, x: '-50%', y: '-50%', rotate: 0 }}
               animate={{
                 opacity: [0, 1, 1, 0],
-                scale: [0.35, 1, 0.96, 0.6],
+                scale: [0.4, 1, 0.98, 0.65],
                 x: '-50%',
                 y: ['-50%', '-140%'],
                 rotate: p.rotation,
               }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 1.35, ease: 'easeOut' }}
-              className="absolute w-22 h-26 sm:w-26 sm:h-32 rounded-lg bg-white p-1 shadow-2xl border border-[#CDAE80] pointer-events-none select-none overflow-hidden"
+              transition={{ duration: 1.4, ease: 'easeOut' }}
+              className="absolute w-28 h-36 xs:w-32 xs:h-40 sm:w-36 sm:h-46 md:w-42 md:h-54 rounded-xl shadow-[0_12px_32px_rgba(0,0,0,0.32)] pointer-events-none select-none overflow-hidden"
             >
               <img
                 src={p.image}
                 alt="Magic Memory"
-                className="w-full h-full object-cover rounded pointer-events-none select-none"
+                className="w-full h-full object-cover pointer-events-none select-none"
               />
             </motion.div>
           ))}
