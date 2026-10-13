@@ -17,6 +17,38 @@ import LocationFrame from './LocationFrame';
 import RSVPSection from './RSVPSection';
 import FinalTempleScene from './FinalTempleScene';
 
+const CRITICAL_ASSETS = [
+  '/theartfulinvites/page1_sky.webp',
+  '/theartfulinvites/page1_temple.webp',
+  '/theartfulinvites/page1_tree.webp',
+  '/theartfulinvites/page2_bg.webp',
+  '/theartfulinvites/page2_ganesh.webp',
+  '/theartfulinvites/page3_bg.webp',
+  '/theartfulinvites/event_haldi.png',
+  '/theartfulinvites/event_mehendi.png',
+  '/theartfulinvites/event_sangeet.png',
+  '/theartfulinvites/event_wedding.png',
+  '/theartfulinvites/event_reception.png',
+  '/theartfulinvites/page4_sky.webp',
+  '/theartfulinvites/page4_cloud.webp',
+  '/theartfulinvites/page4_temple.webp',
+  '/theartfulinvites/page4_couple_cutout.webp',
+  '/theartfulinvites/page5_bg.webp',
+  '/theartfulinvites/page5_golden_frame_portrait.png',
+  '/theartfulinvites/page5_slide1.jpeg',
+  '/theartfulinvites/page5_slide2.jpeg',
+  '/theartfulinvites/page5_slide3.jpeg',
+  '/theartfulinvites/page5_slide4.jpeg',
+  '/theartfulinvites/page6_bg.webp',
+  '/theartfulinvites/final_scene_temple_landscape.png',
+  '/theartfulinvites/magic1.webp',
+  '/theartfulinvites/magic2.webp',
+  '/theartfulinvites/magic3.webp',
+  '/theartfulinvites/magic4.webp',
+  '/theartfulinvites/magic5.webp',
+  '/theartfulinvites/magic6.webp',
+];
+
 export default function FramerWeddingInvite() {
   const mainRef = useRef<HTMLDivElement | null>(null);
 
@@ -24,8 +56,19 @@ export default function FramerWeddingInvite() {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Entrance Opening modal state (disabled by default so it starts directly on hero sky)
-  const [isIntroOpen, setIsIntroOpen] = useState(false);
+  // Royal Seal / Opening Experience modal opens first on start
+  const [isIntroOpen, setIsIntroOpen] = useState(true);
+
+  // Aggressive Background Asset Preload & Memory Cache Optimization
+  useEffect(() => {
+    CRITICAL_ASSETS.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      if ('decode' in img) {
+        img.decode().catch(() => {});
+      }
+    });
+  }, []);
 
   const toggleAudio = (e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
@@ -48,15 +91,22 @@ export default function FramerWeddingInvite() {
   // GSAP & Lenis Smooth Scroll Integration with strict context cleanup
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.6,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 1.0,
-      touchMultiplier: 1.5,
+      wheelMultiplier: 0.9,
+      touchMultiplier: 1.8,
       infinite: false,
     });
+
+    if (isIntroOpen) {
+      lenis.stop();
+    } else {
+      lenis.start();
+      ScrollTrigger.refresh();
+    }
 
     lenis.on('scroll', ScrollTrigger.update);
 
@@ -232,7 +282,7 @@ export default function FramerWeddingInvite() {
           start: 'top top',
           end: '+=380%',
           pin: true,
-          scrub: 0.6,
+          scrub: 1.2,
           anticipatePin: 1,
           invalidateOnRefresh: true,
         },
