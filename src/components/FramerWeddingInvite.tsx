@@ -90,14 +90,15 @@ export default function FramerWeddingInvite() {
 
   // GSAP & Lenis Smooth Scroll Integration with strict context cleanup
   useEffect(() => {
+    const isTouchDevice = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
     const lenis = new Lenis({
-      duration: 1.6,
+      duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 0.9,
-      touchMultiplier: 1.8,
+      wheelMultiplier: 1.0,
+      touchMultiplier: isTouchDevice ? 1.0 : 1.2,
       infinite: false,
     });
 
@@ -115,7 +116,7 @@ export default function FramerWeddingInvite() {
     };
 
     gsap.ticker.add(rafTicker);
-    gsap.ticker.lagSmoothing(0);
+    gsap.ticker.lagSmoothing(500, 33);
 
     gsap.registerPlugin(ScrollTrigger);
 
@@ -201,13 +202,14 @@ export default function FramerWeddingInvite() {
       // Initial states: Temple & trees start below the fold, 100% opaque so they physically cover text as they rise
       gsap.set('.gsap-p1-temple, .gsap-p1-tree', { yPercent: 105, scale: 1.0, opacity: 1 });
 
+      const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
       const heroTimeline = gsap.timeline({
         scrollTrigger: {
           trigger: '#page-1',
           start: 'top top',
-          end: '+=240%',
+          end: isMobile ? '+=180%' : '+=240%',
           pin: true,
-          scrub: 1.2,
+          scrub: isMobile ? 0.7 : 0.9,
           anticipatePin: 1,
           invalidateOnRefresh: true,
         },
@@ -276,14 +278,13 @@ export default function FramerWeddingInvite() {
       gsap.set('.gsap-p4-couple', { scale: 0.52, transformOrigin: 'center 48%', opacity: 1 });
 
       // Coordinated scrub-linked timeline: Pinned for generous scrolling space
-      const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
       const p4Timeline = gsap.timeline({
         scrollTrigger: {
           trigger: '#page-4',
           start: 'top top',
-          end: isMobile ? '+=180%' : '+=380%',
+          end: isMobile ? '+=160%' : '+=340%',
           pin: true,
-          scrub: 1.2,
+          scrub: isMobile ? 0.7 : 0.9,
           anticipatePin: 1,
           invalidateOnRefresh: true,
         },

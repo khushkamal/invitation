@@ -166,10 +166,10 @@ export default function EventCarousel({ initialIdx = 0 }: EventCarouselProps) {
                       key={activeEvent.id}
                       src={activeEvent.image}
                       alt={activeEvent.title}
-                      initial={{ opacity: 0, x: slideDirection === 'next' ? 24 : -24 }}
+                      initial={{ opacity: 0, x: slideDirection === 'next' ? 28 : -28 }}
                       animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: slideDirection === 'next' ? -24 : 24 }}
-                      transition={{ duration: 0.35, ease: 'easeOut' }}
+                      exit={{ opacity: 0, x: slideDirection === 'next' ? -28 : 28 }}
+                      transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
                       className="w-full h-full object-cover"
                     />
                   </AnimatePresence>

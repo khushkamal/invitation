@@ -99,12 +99,12 @@
 }
 
 html {
-  scroll-behavior: smooth;
   background-color: var(--warm-ivory);
   color: var(--charcoal-black);
   font-family: var(--font-sans);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 html.lenis,

@@ -21,9 +21,9 @@ export default function WeddingStory() {
       </div>
 
       {/* 3. "Our Story" (Positioned gracefully inside the full-height arch dome) */}
-      <div className="gsap-reveal absolute top-[13.5%] sm:top-[18.2%] left-1/2 -translate-x-1/2 w-full text-center pointer-events-auto z-10">
+      <div className="gsap-reveal absolute top-[13.2%] sm:top-[18.2%] left-1/2 -translate-x-1/2 w-full text-center pointer-events-auto z-10">
         <h3
-          className="font-luxurious text-[21px] xs:text-[25px] sm:text-[clamp(28px,3.8vw,70px)] select-none text-center leading-none tracking-wide drop-shadow-[0_1px_2px_rgba(0,0,0,0.12)]"
+          className="font-luxurious text-[22px] xs:text-[26px] sm:text-[clamp(28px,3.8vw,70px)] select-none text-center leading-none tracking-wide drop-shadow-[0_1px_2px_rgba(0,0,0,0.12)]"
           style={{ color: '#C29C54' }}
         >
           {weddingData.coupleStory.scriptTitle}
@@ -31,8 +31,8 @@ export default function WeddingStory() {
       </div>
 
       {/* 4. Narrative Story Paragraph (Centered with airy line spacing and deep maroon color) */}
-      <div className="gsap-reveal absolute top-[19.8%] sm:top-[23.6%] left-1/2 -translate-x-1/2 w-[74%] xs:w-[68%] sm:w-[66%] md:w-[58%] max-w-[460px] text-center pointer-events-auto z-10">
-        <p className="font-sans text-[6.8px] xs:text-[7.8px] sm:text-[clamp(9.5px,1.1vw,12px)] md:text-[clamp(11px,1.2vw,14px)] text-[#3B0716] font-medium leading-[1.30] xs:leading-[1.36] sm:leading-[1.58] md:leading-[1.62] select-none tracking-normal">
+      <div className="gsap-reveal absolute top-[19.0%] sm:top-[23.6%] left-1/2 -translate-x-1/2 w-[76%] xs:w-[70%] sm:w-[66%] md:w-[58%] max-w-[480px] text-center pointer-events-auto z-10">
+        <p className="font-sans text-[7.5px] xs:text-[8.5px] sm:text-[clamp(9.5px,1.1vw,12px)] md:text-[clamp(11px,1.2vw,14px)] text-[#3B0716] font-medium leading-[1.36] xs:leading-[1.42] sm:leading-[1.58] md:leading-[1.62] select-none tracking-normal">
           Some souls are destined to find each other, no matter how long the journey.
           Krishna and Radha&apos;s story wasn&apos;t just about falling in love—it was about
           finding peace in each other&apos;s presence, strength in every challenge, and a
