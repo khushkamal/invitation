@@ -167,9 +167,9 @@ export default function OpeningExperience({
           onClick={onReopen}
           title="Re-open Royal Envelope"
           aria-label="Re-open Royal Envelope"
-          className="fixed top-4 right-4 sm:top-5 sm:right-6 z-40 inline-flex items-center gap-1.5 sm:gap-2 h-9 sm:h-10 px-3 sm:px-4 rounded-full bg-[#FFFCF5]/95 backdrop-blur-md border border-[#C99A42]/75 text-[#590D20] shadow-[0_4px_14px_rgba(0,0,0,0.1)] text-[10.5px] sm:text-[11px] font-jost uppercase tracking-[0.16em] font-semibold hover:scale-105 active:scale-95 transition-all select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C99A42]"
+          className="fixed top-3 right-3 sm:top-5 sm:right-6 z-40 inline-flex items-center gap-1.5 sm:gap-2 h-7.5 sm:h-10 px-2.5 sm:px-4 rounded-full bg-[#FFFCF5]/95 backdrop-blur-md border border-[#C99A42]/75 text-[#590D20] shadow-[0_4px_14px_rgba(0,0,0,0.1)] text-[9.5px] sm:text-[11px] font-jost uppercase tracking-[0.14em] sm:tracking-[0.16em] font-semibold hover:scale-105 active:scale-95 transition-all select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C99A42]"
         >
-          <MailOpen size={14} className="text-[#C99A42]" />
+          <MailOpen size={12} className="text-[#C99A42] sm:w-3.5 sm:h-3.5" />
           <span>Royal Seal</span>
         </button>
       )}

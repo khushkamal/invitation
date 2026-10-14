@@ -47,7 +47,7 @@ export default function LocationFrame() {
             handleNextSlide();
           }
         }}
-        className="gsap-gold-frame relative w-[clamp(188px,32vw,560px)] aspect-[1492/1998] mx-auto flex items-center justify-center transition-transform cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C99A42] rounded-lg"
+        className="gsap-gold-frame relative w-[clamp(164px,28vw,560px)] sm:w-[clamp(188px,32vw,560px)] aspect-[1492/1998] mx-auto flex items-center justify-center transition-transform cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C99A42] rounded-lg"
         title="Tap to change photo"
         aria-label="Tap or press Enter to change photo"
       >

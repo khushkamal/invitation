@@ -276,11 +276,12 @@ export default function FramerWeddingInvite() {
       gsap.set('.gsap-p4-couple', { scale: 0.52, transformOrigin: 'center 48%', opacity: 1 });
 
       // Coordinated scrub-linked timeline: Pinned for generous scrolling space
+      const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
       const p4Timeline = gsap.timeline({
         scrollTrigger: {
           trigger: '#page-4',
           start: 'top top',
-          end: '+=380%',
+          end: isMobile ? '+=180%' : '+=380%',
           pin: true,
           scrub: 1.2,
           anticipatePin: 1,
@@ -501,7 +502,7 @@ export default function FramerWeddingInvite() {
 
           {/* 3 & 4. PANORAMIC TEMPLE & FOREGROUND BRIDE/GROOM FULL-WIDTH CONTAINER */}
           {/* Full-width container positioned lower in frame with generous sky breathing room above */}
-          <div className="gsap-p4-pan-container absolute top-[18svh] sm:top-[20svh] left-1/2 -translate-x-1/2 w-full max-w-none aspect-[1872/3344] pointer-events-none z-20 will-change-transform">
+          <div className="gsap-p4-pan-container absolute top-[12svh] sm:top-[20svh] left-1/2 -translate-x-1/2 w-[112%] sm:w-full max-w-none aspect-[1872/3344] pointer-events-none z-20 will-change-transform">
 
             {/* Layer 3: Colorful South Indian Meenakshi-style Temple (z-20) */}
             <div className="absolute inset-0 w-full h-full z-20 pointer-events-none">
@@ -542,7 +543,7 @@ export default function FramerWeddingInvite() {
 
           <WeddingStory />
 
-          <div className="absolute top-[36.0%] left-1/2 -translate-x-1/2 pointer-events-auto z-20">
+          <div className="absolute top-[35.0%] sm:top-[36.0%] left-1/2 -translate-x-1/2 pointer-events-auto z-20">
             <LocationFrame />
           </div>
         </section>

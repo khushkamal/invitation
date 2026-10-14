@@ -40,27 +40,27 @@ export default function RSVPSection() {
       />
 
       {/* 1. "Will You Join Us?" Title inside arch */}
-      <div className="absolute inset-x-0 top-[12%] sm:top-[16%] md:top-[18%] flex justify-center pointer-events-none z-10">
+      <div className="absolute inset-x-0 top-[10%] sm:top-[16%] md:top-[18%] flex justify-center pointer-events-none z-10">
         <div className="gsap-reveal pointer-events-auto text-center px-4">
           <h2 className="text-[#4E0917] select-none text-center leading-[1.02]">
-            <span className="font-luxurious text-[clamp(32px,5.2vw,86px)] inline-block align-baseline mr-1 text-[#4E0917]">
+            <span className="font-luxurious text-[30px] xs:text-[34px] sm:text-[clamp(38px,5.2vw,86px)] inline-block align-baseline mr-1 text-[#4E0917]">
               Will
             </span>
-            <span className="font-instrument text-[clamp(26px,4.2vw,70px)] font-normal text-[#4E0917]">
+            <span className="font-instrument text-[24px] xs:text-[28px] sm:text-[clamp(30px,4.2vw,70px)] font-normal text-[#4E0917]">
               You
             </span>
             <br />
-            <span className="font-instrument text-[clamp(26px,4.2vw,70px)] font-normal text-[#4E0917]">
+            <span className="font-instrument text-[24px] xs:text-[28px] sm:text-[clamp(30px,4.2vw,70px)] font-normal text-[#4E0917]">
               Join Us?
             </span>
           </h2>
         </div>
       </div>
 
-      {/* 2. RSVP Narrative Note (5 centered lines exactly matching reference) */}
-      <div className="absolute inset-x-0 top-[35%] sm:top-[39%] md:top-[41%] flex justify-center pointer-events-none z-10">
-        <div className="gsap-reveal pointer-events-auto text-center w-[86%] sm:w-[72%] md:w-[52%] max-w-[480px] px-3">
-          <p className="font-sans text-[clamp(8px,1.05vw,15.5px)] text-[#4E0917] font-medium leading-[1.5] sm:leading-[1.58] select-none text-center">
+      {/* 2. RSVP Narrative Note */}
+      <div className="absolute inset-x-0 top-[31%] sm:top-[38%] md:top-[41%] flex justify-center pointer-events-none z-10">
+        <div className="gsap-reveal pointer-events-auto text-center w-[84%] sm:w-[72%] md:w-[52%] max-w-[480px] px-3">
+          <p className="font-sans text-[10.5px] xs:text-[11.5px] sm:text-[clamp(12px,1.05vw,15.5px)] text-[#4E0917] font-medium leading-[1.4] sm:leading-[1.58] select-none text-center">
             <span className="block">We would be truly honoured to</span>
             <span className="block">celebrate this day with you. Please</span>
             <span className="block">let us know if you&apos;ll be joining the</span>
@@ -71,22 +71,22 @@ export default function RSVPSection() {
       </div>
 
       {/* 3. Dark Maroon WhatsApp RSVP Button & "TAP HERE" (Centered between temple spires) */}
-      <div className="absolute inset-x-0 top-[57%] sm:top-[60%] md:top-[62%] flex justify-center pointer-events-none z-10">
+      <div className="absolute inset-x-0 top-[52%] sm:top-[58%] md:top-[62%] flex justify-center pointer-events-none z-10">
         <div className="gsap-reveal pointer-events-auto flex flex-col items-center text-center">
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-3 sm:gap-3.5 min-h-[46px] px-7 sm:px-10 md:px-12 py-3 sm:py-3.5 rounded-[6px] bg-[#4E0917] hover:bg-[#3B0716] active:scale-95 text-white border border-[#C99A42]/50 shadow-[0_6px_22px_rgba(0,0,0,0.35)] transition-all hover:scale-[1.02] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C99A42] focus-visible:ring-offset-2"
+            className="inline-flex items-center justify-center gap-2.5 sm:gap-3.5 min-h-[42px] sm:min-h-[46px] px-5 xs:px-7 sm:px-10 md:px-12 py-2.5 sm:py-3.5 rounded-[6px] bg-[#4E0917] hover:bg-[#3B0716] active:scale-95 text-white border border-[#C99A42]/50 shadow-[0_6px_22px_rgba(0,0,0,0.35)] transition-all hover:scale-[1.02] cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C99A42] focus-visible:ring-offset-2"
           >
-            <WhatsAppIcon className="w-5 h-5 sm:w-5.5 sm:h-5.5 text-white flex-shrink-0" />
-            <span className="font-sans text-[clamp(13px,1.25vw,17px)] font-semibold tracking-wide text-white whitespace-nowrap">
+            <WhatsAppIcon className="w-4.5 h-4.5 sm:w-5.5 sm:h-5.5 text-white flex-shrink-0" />
+            <span className="font-sans text-[12.5px] xs:text-[13.5px] sm:text-[clamp(13.5px,1.25vw,17px)] font-semibold tracking-wide text-white whitespace-nowrap">
               RSVP on WhatsApp
             </span>
           </a>
 
-          {/* TAP HERE Text below button with increased gap */}
-          <span className="font-jost text-[clamp(8.5px,0.85vw,12px)] uppercase tracking-[0.24em] text-[#633B26] font-semibold mt-3.5 sm:mt-5 select-none">
+          {/* TAP HERE Text below button */}
+          <span className="font-jost text-[9px] xs:text-[9.5px] sm:text-[clamp(9.5px,0.85vw,12px)] uppercase tracking-[0.24em] text-[#633B26] font-semibold mt-2.5 sm:mt-4 select-none">
             TAP HERE
           </span>
         </div>

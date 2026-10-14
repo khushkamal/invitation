@@ -133,7 +133,7 @@ export default function EventCarousel({ initialIdx = 0 }: EventCarouselProps) {
       <div className="relative z-10 w-full max-w-[1060px] rounded-[24px] sm:rounded-[28px] border-[1.5px] border-[#C99A42]/45 p-1 sm:p-1.5 bg-[#FFFCF5] shadow-[0_8px_24px_rgba(45,35,20,0.08)]">
 
         {/* Inner Gold Accent Line with Generous Padding */}
-        <div className="relative w-full rounded-[18px] sm:rounded-[22px] border border-[#C99A42]/70 bg-[#FFFCF5] px-4 pt-4 pb-10 sm:px-6 sm:pt-6 sm:pb-8 md:p-8">
+        <div className="relative w-full rounded-[18px] sm:rounded-[22px] border border-[#C99A42]/70 bg-[#FFFCF5] px-3.5 pt-3.5 pb-6 sm:px-6 sm:pt-6 sm:pb-8 md:p-8">
 
           {/* 4-Corner Sparkle Stars matching reference image */}
           {/* Top-Left: Gold star with blue center */}
@@ -146,8 +146,8 @@ export default function EventCarousel({ initialIdx = 0 }: EventCarouselProps) {
           <CornerStar color="#C99A42" centerColor="#123B86" className="absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3" />
 
           {/* Eyebrow Label: Krishna & Radha in Royal Blue (#123B86) */}
-          <div className="mb-3 sm:mb-4 pl-0.5 sm:pl-1">
-            <span className="text-[#123B86] font-medium text-[13.5px] sm:text-[14.5px] tracking-wide font-sans">
+          <div className="mb-2.5 sm:mb-4 pl-6 sm:pl-7 pt-0.5">
+            <span className="text-[#123B86] font-medium text-[13px] sm:text-[14.5px] tracking-wide font-sans">
               Krishna &amp; Radha
             </span>
           </div>

@@ -38,30 +38,30 @@ export default function CountdownSection() {
   return (
     <div className="flex flex-col items-center">
       {/* 1. "Counting the Days" in elegant cursive calligraphy */}
-      <h3 className="font-luxurious text-[clamp(32px,5.4vw,84px)] text-[#4E0917] text-center leading-tight mb-5 sm:mb-8 md:mb-10 select-none font-normal drop-shadow-xs">
+      <h3 className="font-luxurious text-[26px] xs:text-[30px] sm:text-[clamp(34px,5.4vw,84px)] text-[#4E0917] text-center leading-tight mb-4 sm:mb-8 md:mb-10 select-none font-normal drop-shadow-xs">
         Counting the Days
       </h3>
 
       {/* 2. 4 White Rounded Cards with Colons and D, H, M, S below */}
-      <div className="flex items-center justify-center gap-2 sm:gap-3.5 md:gap-5">
+      <div className="flex items-center justify-center gap-1.5 xs:gap-2 sm:gap-3.5 md:gap-5">
         {items.map((item, idx) => (
           <React.Fragment key={item.label}>
             <div className="flex flex-col items-center">
               {/* White Card */}
-              <div className="w-[52px] h-[52px] xs:w-[60px] xs:h-[60px] sm:w-[76px] sm:h-[76px] md:w-[88px] md:h-[88px] bg-white rounded-2xl sm:rounded-3xl shadow-[0_4px_16px_rgba(0,0,0,0.06)] flex items-center justify-center border border-black/[0.03]">
-                <span className="font-instrument text-2xl xs:text-3xl sm:text-4xl md:text-5xl text-[#1A1A1A] font-normal leading-none">
+              <div className="w-[46px] h-[46px] xs:w-[54px] xs:h-[54px] sm:w-[76px] sm:h-[76px] md:w-[88px] md:h-[88px] bg-white rounded-xl xs:rounded-2xl sm:rounded-3xl shadow-[0_4px_16px_rgba(0,0,0,0.06)] flex items-center justify-center border border-black/[0.03]">
+                <span className="font-instrument text-xl xs:text-2xl sm:text-4xl md:text-5xl text-[#1A1A1A] font-normal leading-none">
                   {String(item.val).padStart(2, '0')}
                 </span>
               </div>
               {/* D, H, M, S label */}
-              <span className="font-jost text-[10px] sm:text-xs md:text-sm text-[#4E0917]/75 font-semibold mt-1 sm:mt-1.5 uppercase tracking-wider">
+              <span className="font-jost text-[9px] xs:text-[10px] sm:text-xs md:text-sm text-[#4E0917]/75 font-semibold mt-1 sm:mt-1.5 uppercase tracking-wider">
                 {item.label}
               </span>
             </div>
 
             {/* Colon separator between cards */}
             {idx < 3 && (
-              <span className="font-serif text-base xs:text-lg sm:text-2xl text-[#4E0917]/60 font-semibold mb-4 sm:mb-5 select-none">
+              <span className="font-serif text-sm xs:text-base sm:text-2xl text-[#4E0917]/60 font-semibold mb-3.5 sm:mb-5 select-none">
                 :
               </span>
             )}
